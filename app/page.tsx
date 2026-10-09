@@ -116,7 +116,15 @@ export default function Home() {
                 {t("home.hero.subtitle")}
               </p>
               <div className="mt-10 flex flex-wrap items-center gap-4">
-                <Link href="/transactions" className="inline-flex items-center justify-center rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow transition-all duration-300 ease-out hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring">
+                <Link
+                  href="/transactions"
+                  className="inline-flex items-center justify-center rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow transition-all duration-300 ease-out hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+                  style={{
+                    color: "#f97316",
+                    backgroundColor: "#ffffff",
+                    fontSize: "24px",
+                    padding: "32px"
+                  }}>
                   {t("home.hero.primaryCta")}
                 </Link>
                 <Link href="/budgets" className="inline-flex items-center justify-center rounded-lg border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground transition-all duration-300 ease-out hover:-translate-y-0.5 hover:bg-muted focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring">
