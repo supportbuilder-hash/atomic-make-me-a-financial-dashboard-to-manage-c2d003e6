@@ -7,13 +7,13 @@
     /* @tokens */
     --background: 220 42.9% 97.3%;
     --foreground: 220 48.4% 12.2%;
-    --primary: 350 85% 55%;
+    --primary: 160 85% 55%;
     --card: 0 0% 100%;
     --muted: 217.5 20% 92.2%;
     --secondary: 217.5 20% 92.2%;
-    --accent: 330 85% 55%;
+    --accent: 84 85% 55%;
     --border: 220 33.3% 91.2%;
-    --ring: 350 85% 55%;
+    --ring: 160 85% 55%;
     --destructive: 0 72.2% 50.6%;
     --popover: 0 0% 100%;
     --input: 220 33.3% 91.2%;
