@@ -106,7 +106,11 @@ export default function Home() {
               </span>
               <h1 className="mt-6 text-balance text-4xl font-bold tracking-tight md:text-6xl">
                 {t("home.hero.titleStart")}{" "}
-                <span className="text-gradient">dollar goes...</span>
+                <span
+                  className="text-gradient"
+                  style={{
+                    color: "#f97316"
+                  }}>dollar goes...</span>
               </h1>
               <p className="mt-6 max-w-lg text-pretty text-lg leading-relaxed text-muted-foreground">
                 {t("home.hero.subtitle")}
