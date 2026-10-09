@@ -1,0 +1,807 @@
+{
+  "nav": {
+    "home": "Dashboard",
+    "transactions": "Transactions",
+    "budgets": "Budgets",
+    "settings": "Settings",
+    "reports": "Reports",
+    "goals": "Goals",
+    "recurring": "Recurring",
+    "notifications": "Notifications"
+  },
+  "cta": {
+    "primary": "Add Expense"
+  },
+  "footer": {
+    "tagline": "Track every dollar, master your day-to-day spending.",
+    "rights": "All rights reserved.",
+    "columns": {
+      "product": "Product",
+      "account": "Account"
+    },
+    "links": {
+      "dashboard": "Dashboard",
+      "transactions": "Transactions",
+      "budgets": "Budgets",
+      "settings": "Settings",
+      "reports": "Reports",
+      "goals": "Goals",
+      "recurring": "Recurring",
+      "notifications": "Notifications"
+    }
+  },
+  "budgets": {
+    "hero": {
+      "eyebrow": "Monthly budgets",
+      "title": "Keep every category on track",
+      "subtitle": "Set spending limits for rent, transport, food and savings, then see exactly where this month's money is going."
+    },
+    "stats": {
+      "totalBudgeted": "Total budgeted",
+      "totalSpent": "Total spent",
+      "remaining": "Remaining this month",
+      "savingsRate": "Savings goal reached"
+    },
+    "cards": {
+      "sectionTitle": "Budget by category",
+      "sectionSubtitle": "Live progress for each category against its monthly limit.",
+      "spentOf": "{spent} spent of {limit}",
+      "remainingLabel": "{value} left",
+      "statusGood": "On track",
+      "statusWarning": "Near limit",
+      "statusOver": "Over budget"
+    },
+    "chart": {
+      "sectionTitle": "Budget vs. actual",
+      "sectionSubtitle": "Compare what you planned to spend against what actually went out the door.",
+      "budgetLabel": "Budget",
+      "actualLabel": "Actual"
+    },
+    "form": {
+      "sectionTitle": "Adjust your limits",
+      "sectionSubtitle": "Update a category's monthly limit any time. Changes apply immediately to your progress bars.",
+      "currentSpent": "Current spent: {value}",
+      "saveButton": "Save limits",
+      "successMessage": "Budgets updated successfully."
+    },
+    "categories": [
+      {
+        "id": "rent",
+        "name": "Rent",
+        "icon": "home",
+        "limit": 1800,
+        "spent": 1800
+      },
+      {
+        "id": "transport",
+        "name": "Transport",
+        "icon": "activity",
+        "limit": 250,
+        "spent": 210
+      },
+      {
+        "id": "food",
+        "name": "Food",
+        "icon": "circle",
+        "limit": 500,
+        "spent": 465
+      },
+      {
+        "id": "saving",
+        "name": "Saving",
+        "icon": "star",
+        "limit": 400,
+        "spent": 150
+      }
+    ]
+  },
+  "settings": {
+    "hero": {
+      "eyebrow": "Settings",
+      "title": "Shape Finly around how you actually spend",
+      "subtitle": "Set your currency and date format, manage your expense categories, define default budget splits, and export your data whenever you need it."
+    },
+    "general": {
+      "title": "General preferences",
+      "subtitle": "Control how amounts and dates are displayed across your dashboard.",
+      "currencyLabel": "Display currency",
+      "dateFormatLabel": "Date format",
+      "saveButton": "Save preferences",
+      "savedMessage": "Preferences saved",
+      "currencyOptions": [
+        {
+          "value": "USD",
+          "label": "USD — US Dollar ($)"
+        },
+        {
+          "value": "EUR",
+          "label": "EUR — Euro (€)"
+        },
+        {
+          "value": "GBP",
+          "label": "GBP — British Pound (£)"
+        },
+        {
+          "value": "CAD",
+          "label": "CAD — Canadian Dollar (C$)"
+        }
+      ],
+      "dateFormatOptions": [
+        {
+          "value": "MM/DD/YYYY",
+          "label": "MM/DD/YYYY (04/18/2024)"
+        },
+        {
+          "value": "DD/MM/YYYY",
+          "label": "DD/MM/YYYY (18/04/2024)"
+        },
+        {
+          "value": "YYYY-MM-DD",
+          "label": "YYYY-MM-DD (2024-04-18)"
+        }
+      ]
+    },
+    "categories": {
+      "title": "Expense categories",
+      "subtitle": "Add, rename, or remove the categories you use to tag every transaction.",
+      "emptyState": "No categories yet. Add your first one below.",
+      "addPlaceholder": "New category name",
+      "addButton": "Add category",
+      "editAria": "Edit category",
+      "deleteAria": "Delete category",
+      "saveAria": "Save category name",
+      "cancelAria": "Cancel edit",
+      "defaultItems": [
+        {
+          "name": "Rent",
+          "icon": "home"
+        },
+        {
+          "name": "Transport",
+          "icon": "transport"
+        },
+        {
+          "name": "Food",
+          "icon": "food"
+        },
+        {
+          "name": "Saving",
+          "icon": "saving"
+        }
+      ],
+      "iconOptions": [
+        {
+          "value": "home",
+          "label": "Home icon"
+        },
+        {
+          "value": "transport",
+          "label": "Transport icon"
+        },
+        {
+          "value": "food",
+          "label": "Food icon"
+        },
+        {
+          "value": "saving",
+          "label": "Saving icon"
+        },
+        {
+          "value": "generic",
+          "label": "General icon"
+        }
+      ]
+    },
+    "budgetDefaults": {
+      "title": "Default budget allocation",
+      "subtitle": "Set the percentage of your monthly budget each category should receive by default when you create a new budget.",
+      "totalLabel": "Total allocated",
+      "totalWarning": "Your allocations don't add up to 100% yet. Adjust the values so they total exactly 100%.",
+      "saveButton": "Save as default",
+      "savedMessage": "Defaults updated"
+    },
+    "export": {
+      "title": "Export your data",
+      "subtitle": "Download your transactions, budgets, and categories as a CSV or PDF file for your own records.",
+      "dataTypesLabel": "Include in export",
+      "formatLabel": "File format",
+      "csvLabel": "CSV",
+      "pdfLabel": "PDF",
+      "rangeLabel": "Date range",
+      "infoNote": "Exports are generated instantly and reflect the data currently in your account.",
+      "exportButton": "Export data",
+      "successMessage": "Export ready and downloaded",
+      "dataTypes": [
+        {
+          "id": "transactions",
+          "label": "Transactions"
+        },
+        {
+          "id": "budgets",
+          "label": "Budgets"
+        },
+        {
+          "id": "categories",
+          "label": "Categories"
+        }
+      ],
+      "rangeOptions": [
+        {
+          "value": "30d",
+          "label": "Last 30 days"
+        },
+        {
+          "value": "90d",
+          "label": "Last 90 days"
+        },
+        {
+          "value": "ytd",
+          "label": "Year to date"
+        },
+        {
+          "value": "all",
+          "label": "All time"
+        }
+      ]
+    }
+  },
+  "home": {
+    "hero": {
+      "titleStart": "Know exactly where every",
+      "titleHighlight": "dollar goes.",
+      "subtitle": "Finly tracks your Rent, Transport, Food and Saving in one place, so your day-to-day spending never feels like a mystery.",
+      "primaryCta": "Go to transactions",
+      "secondaryCta": "View budgets",
+      "cardLabel": "This month",
+      "cardBadge": "On track",
+      "cardAmount": "$2,840.00",
+      "cardHint": "Available to spend across all categories"
+    },
+    "stats": {
+      "title": "Your month at a glance",
+      "subtitle": "A quick read on your balance, spending pace and savings progress.",
+      "items": [
+        {
+          "value": "$12,480.32",
+          "label": "Total balance"
+        },
+        {
+          "value": "$3,240.18",
+          "label": "Spent this month"
+        },
+        {
+          "value": "24%",
+          "label": "Savings rate"
+        },
+        {
+          "value": "$860.00",
+          "label": "Upcoming bills"
+        }
+      ]
+    },
+    "categories": {
+      "eyebrow": "Where it goes",
+      "title": "Every expense, sorted automatically",
+      "subtitle": "Rent, Transport, Food and Saving each get their own limit so you always know how much room is left.",
+      "of": "Of",
+      "items": [
+        {
+          "name": "Rent",
+          "description": "Monthly housing payment"
+        },
+        {
+          "name": "Transport",
+          "description": "Commute, fuel and rideshares"
+        },
+        {
+          "name": "Food",
+          "description": "Groceries and dining out"
+        },
+        {
+          "name": "Saving",
+          "description": "Set aside for your goals"
+        }
+      ]
+    },
+    "insights": {
+      "eyebrow": "Stay ahead",
+      "title": "See your spending before it surprises you",
+      "subtitle": "A simple weekly view of your outgoings makes it easy to catch a slow leak before it becomes a problem.",
+      "chartTitle": "Last 6 days",
+      "chartDays": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat"
+      ],
+      "steps": [
+        {
+          "title": "Log an expense",
+          "description": "Add what you spent in a few taps, tagged to a category."
+        },
+        {
+          "title": "Set a monthly budget",
+          "description": "Give Rent, Transport, Food and Saving their own limits."
+        },
+        {
+          "title": "Stay ahead",
+          "description": "Watch progress bars and alerts keep you on track all month."
+        }
+      ]
+    },
+    "features": {
+      "eyebrow": "Why Finly",
+      "title": "Built for everyday spending, not just big purchases",
+      "subtitle": "Small, simple tools that keep your daily finances in check.",
+      "items": [
+        {
+          "title": "Automatic categorization",
+          "description": "Every expense is sorted into Rent, Transport, Food or Saving the moment it's logged."
+        },
+        {
+          "title": "Smart budget alerts",
+          "description": "Get a heads up before you're close to a category limit, not after."
+        },
+        {
+          "title": "Clear spending insights",
+          "description": "Weekly trends show exactly where your day-to-day money is going."
+        },
+        {
+          "title": "Private by design",
+          "description": "Your numbers stay yours. No bank credentials, no data sharing."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Ready to take control of your day-to-day spending?",
+      "subtitle": "Start logging expenses and set your first budget in under a minute.",
+      "primaryCta": "Start tracking now",
+      "secondaryCta": "Adjust your budgets"
+    }
+  },
+  "dashboard": {
+    "eyebrow": "Daily overview",
+    "title": "Your spending, at a glance",
+    "subtitle": "Track where your money goes this month and stay ahead of your budgets.",
+    "addExpense": "Add expense",
+    "form": {
+      "title": "Log a new expense",
+      "description": "Description",
+      "descriptionPlaceholder": "e.g. Coffee with Sam",
+      "amount": "Amount (USD)",
+      "category": "Category",
+      "submit": "Add expense",
+      "cancel": "Cancel"
+    },
+    "stats": {
+      "balance": "Net balance",
+      "spent": "Spent this month",
+      "income": "Monthly income",
+      "saved": "Saved this month"
+    },
+    "trend": {
+      "title": "Weekly spending trend",
+      "subtitle": "Daily outflow across all categories",
+      "days": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu",
+        "Fri",
+        "Sat",
+        "Sun"
+      ]
+    },
+    "breakdown": {
+      "title": "Where it goes",
+      "subtitle": "Share of spend by category this month"
+    },
+    "categoryLabels": [
+      "Rent",
+      "Transport",
+      "Food",
+      "Saving"
+    ],
+    "budgets": {
+      "title": "Budget health",
+      "subtitle": "How each category is tracking against its monthly limit",
+      "remaining": "Budget Remaining",
+      "over": "over budget"
+    },
+    "transactions": {
+      "title": "Recent transactions",
+      "subtitle": "Your latest logged expenses",
+      "empty": "No transactions yet. Add your first expense above.",
+      "columns": {
+        "description": "Description",
+        "category": "Category",
+        "date": "Date",
+        "amount": "Amount"
+      }
+    }
+  },
+  "transactionsPage": {
+    "heading": "Transactions",
+    "subtitle": "Review, add and manage every expense flowing through your day-to-day budget.",
+    "addButton": "Add transaction",
+    "stats": {
+      "totalSpent": "Total spent",
+      "transactionCount": "Transactions",
+      "avgTransaction": "Average transaction",
+      "topCategory": "Top category"
+    },
+    "filters": {
+      "searchPlaceholder": "Search by description",
+      "categoryAll": "All categories",
+      "dateFromLabel": "From",
+      "dateToLabel": "To",
+      "clearButton": "Clear filters"
+    },
+    "table": {
+      "selectAllAria": "Select all transactions on this page",
+      "selectRowAria": "Select transaction",
+      "date": "Date",
+      "description": "Description",
+      "category": "Category",
+      "amount": "Amount",
+      "actions": "Actions",
+      "editAria": "Edit transaction",
+      "deleteAria": "Delete transaction",
+      "empty": "No transactions match your filters. Try adjusting the search or date range."
+    },
+    "pagination": {
+      "pageInfo": "Page {page} of {total}",
+      "previous": "Previous page",
+      "next": "Next page"
+    },
+    "bulk": {
+      "selectedCount": "{count} selected",
+      "categorizeButton": "Apply category",
+      "exportButton": "Export CSV",
+      "deleteButton": "Delete",
+      "cancelButton": "Cancel"
+    },
+    "form": {
+      "addTitle": "Add transaction",
+      "editTitle": "Edit transaction",
+      "descriptionLabel": "Description",
+      "categoryLabel": "Category",
+      "amountLabel": "Amount (USD)",
+      "dateLabel": "Date",
+      "saveButton": "Save transaction",
+      "cancelButton": "Cancel",
+      "closeAria": "Close dialog",
+      "errorDescription": "Please enter a description.",
+      "errorAmount": "Enter an amount greater than zero.",
+      "errorDate": "Please select a date."
+    },
+    "deleteConfirm": "Delete this transaction? This cannot be undone."
+  },
+  "reports": {
+    "hero": {
+      "eyebrow": "Financial reports",
+      "title": "See the full story behind your spending",
+      "subtitle": "Detailed monthly and yearly breakdowns, downloadable summaries, and historical comparisons so you always know where your money went."
+    },
+    "stats": {
+      "title": "This year at a glance",
+      "items": [
+        {
+          "value": "$38,420",
+          "label": "Total spent this year"
+        },
+        {
+          "value": "$6,200",
+          "label": "Total saved this year"
+        },
+        {
+          "value": "12",
+          "label": "Monthly reports generated"
+        },
+        {
+          "value": "-8%",
+          "label": "Spending vs. last year"
+        }
+      ]
+    },
+    "monthly": {
+      "eyebrow": "Monthly breakdown",
+      "title": "Compare month over month",
+      "subtitle": "Track how each category trends across the year and spot where spending crept up.",
+      "items": [
+        {
+          "title": "June 2024",
+          "description": "$3,180 spent across Rent, Transport, Food and Saving — 4% below May."
+        },
+        {
+          "title": "May 2024",
+          "description": "$3,310 spent, driven by a higher Transport bill from a car repair."
+        },
+        {
+          "title": "April 2024",
+          "description": "$3,050 spent, your lowest month this year thanks to a Food budget win."
+        }
+      ]
+    },
+    "downloads": {
+      "eyebrow": "Export",
+      "title": "Download your summaries",
+      "subtitle": "Grab a PDF or CSV of any period for your records or your accountant.",
+      "items": [
+        {
+          "name": "Yearly Summary 2024",
+          "price": "PDF",
+          "description": "Full breakdown of income, spend and savings for 2024."
+        },
+        {
+          "name": "Q2 2024 Report",
+          "price": "CSV",
+          "description": "Raw transaction export for April–June 2024."
+        },
+        {
+          "name": "June 2024 Statement",
+          "price": "PDF",
+          "description": "Category-by-category statement for the past month."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Ready to review your year?",
+      "subtitle": "Generate a fresh report any time — it only takes a few seconds.",
+      "primary": "Generate report",
+      "secondary": "View transactions"
+    }
+  },
+  "goals": {
+    "hero": {
+      "eyebrow": "Savings goals",
+      "title": "Give every dollar a destination",
+      "subtitle": "Set target amounts and deadlines, then watch your progress bars fill up as you save."
+    },
+    "stats": {
+      "title": "Your goals overview",
+      "items": [
+        {
+          "value": "4",
+          "label": "Active goals"
+        },
+        {
+          "value": "$9,450",
+          "label": "Total saved toward goals"
+        },
+        {
+          "value": "62%",
+          "label": "Average progress"
+        },
+        {
+          "value": "2",
+          "label": "Goals due this year"
+        }
+      ]
+    },
+    "list": {
+      "eyebrow": "In progress",
+      "title": "Track every goal",
+      "subtitle": "See exactly how close you are to each target.",
+      "items": [
+        {
+          "name": "Emergency Fund",
+          "price": "$6,000 / $10,000",
+          "description": "Target date: December 2024 — 60% funded."
+        },
+        {
+          "name": "New Car Down Payment",
+          "price": "$2,400 / $5,000",
+          "description": "Target date: March 2025 — 48% funded."
+        },
+        {
+          "name": "Vacation to Portugal",
+          "price": "$1,050 / $2,000",
+          "description": "Target date: August 2024 — 52% funded."
+        },
+        {
+          "name": "Home Office Upgrade",
+          "price": "$0 / $800",
+          "description": "Target date: October 2024 — just getting started."
+        }
+      ]
+    },
+    "tips": {
+      "eyebrow": "Stay motivated",
+      "title": "Tips to reach your goals faster",
+      "subtitle": "Small habits that add up over time.",
+      "items": [
+        {
+          "title": "Automate transfers",
+          "description": "Move money to each goal right after payday so saving happens before you spend."
+        },
+        {
+          "title": "Round up purchases",
+          "description": "Send the spare change from every transaction straight into your goals."
+        },
+        {
+          "title": "Review monthly",
+          "description": "Check progress at the start of each month and adjust contributions as needed."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Ready to set a new goal?",
+      "subtitle": "Define a target, pick a deadline, and start tracking today.",
+      "primary": "Add a goal",
+      "secondary": "View budgets"
+    }
+  },
+  "recurring": {
+    "hero": {
+      "eyebrow": "Recurring expenses",
+      "title": "Never miss a bill again",
+      "subtitle": "Manage rent, utilities and subscriptions in one place, with reminders before every payment is due."
+    },
+    "stats": {
+      "title": "Recurring overview",
+      "items": [
+        {
+          "value": "$2,340",
+          "label": "Total due monthly"
+        },
+        {
+          "value": "7",
+          "label": "Active subscriptions"
+        },
+        {
+          "value": "3",
+          "label": "Due in the next 7 days"
+        },
+        {
+          "value": "$180",
+          "label": "Potential savings found"
+        }
+      ]
+    },
+    "bills": {
+      "eyebrow": "Upcoming",
+      "title": "Your recurring bills",
+      "subtitle": "Every fixed cost, its cadence, and when it's due next.",
+      "items": [
+        {
+          "name": "Apartment Rent",
+          "price": "$1,450/mo",
+          "description": "Due on the 1st of every month — autopay enabled."
+        },
+        {
+          "name": "Electricity & Gas",
+          "price": "$95/mo",
+          "description": "Due on the 8th — varies with usage."
+        },
+        {
+          "name": "Internet",
+          "price": "$60/mo",
+          "description": "Due on the 12th — fixed rate contract."
+        },
+        {
+          "name": "Streaming Bundle",
+          "price": "$24/mo",
+          "description": "Due on the 15th — shared with household."
+        },
+        {
+          "name": "Gym Membership",
+          "price": "$45/mo",
+          "description": "Due on the 20th — annual contract."
+        },
+        {
+          "name": "Phone Plan",
+          "price": "$70/mo",
+          "description": "Due on the 25th — includes device payment."
+        }
+      ]
+    },
+    "reminders": {
+      "eyebrow": "Reminders",
+      "title": "Stay ahead of every payment",
+      "subtitle": "How Finly keeps you from ever missing a due date.",
+      "items": [
+        {
+          "title": "Smart notifications",
+          "description": "Get alerted three days before any bill is due."
+        },
+        {
+          "title": "Autopay tracking",
+          "description": "See at a glance which bills are on autopay and which need manual action."
+        },
+        {
+          "title": "Price change alerts",
+          "description": "We flag it the moment a subscription's price goes up."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Add a new recurring bill",
+      "subtitle": "Keep your fixed costs organized and never get caught off guard.",
+      "primary": "Add recurring expense",
+      "secondary": "View budgets"
+    }
+  },
+  "notifications": {
+    "hero": {
+      "eyebrow": "Notifications",
+      "title": "Stay on top of every alert",
+      "subtitle": "Budget overruns, upcoming bills and savings milestones — all in one place."
+    },
+    "stats": {
+      "title": "Alert summary",
+      "items": [
+        {
+          "value": "3",
+          "label": "Unread alerts"
+        },
+        {
+          "value": "1",
+          "label": "Budget overrun"
+        },
+        {
+          "value": "2",
+          "label": "Bills due soon"
+        },
+        {
+          "value": "1",
+          "label": "Milestone reached"
+        }
+      ]
+    },
+    "alerts": {
+      "eyebrow": "Recent",
+      "title": "Your latest alerts",
+      "subtitle": "Everything that needs your attention right now.",
+      "items": [
+        {
+          "title": "Food budget exceeded",
+          "description": "You've spent $465 of your $500 Food budget this month — 93% used."
+        },
+        {
+          "title": "Rent due in 3 days",
+          "description": "Your $1,450 rent payment is due on the 1st — autopay is enabled."
+        },
+        {
+          "title": "Internet bill due in 5 days",
+          "description": "Your $60 internet bill is due on the 12th."
+        },
+        {
+          "title": "Savings milestone reached",
+          "description": "You just crossed $9,000 saved across all your goals. Great work!"
+        },
+        {
+          "title": "Transport budget on track",
+          "description": "You've used 70% of your Transport budget with 10 days left in the month."
+        }
+      ]
+    },
+    "preferences": {
+      "eyebrow": "Preferences",
+      "title": "Choose what you're notified about",
+      "subtitle": "Fine-tune which alerts reach you and how.",
+      "items": [
+        {
+          "title": "Budget alerts",
+          "description": "Get notified when a category crosses 80% or 100% of its limit."
+        },
+        {
+          "title": "Bill reminders",
+          "description": "Receive a reminder three days before every recurring payment."
+        },
+        {
+          "title": "Milestone celebrations",
+          "description": "Be told the moment you hit a new savings milestone."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Fine-tune your alerts",
+      "subtitle": "Head to settings to customize exactly what you hear about.",
+      "primary": "Go to settings",
+      "secondary": "View goals"
+    }
+  }
+}

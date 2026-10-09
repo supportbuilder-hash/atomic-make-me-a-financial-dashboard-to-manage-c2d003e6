@@ -1,0 +1,71 @@
+{
+  "brand": {
+    "name": "Finly",
+    "tagline": "Track every dollar, master your day-to-day spending.",
+    "logoUrl": null
+  },
+  "navLinks": [
+    {
+      "key": "home",
+      "href": "/"
+    },
+    {
+      "key": "transactions",
+      "href": "/transactions"
+    },
+    {
+      "key": "budgets",
+      "href": "/budgets"
+    },
+    {
+      "key": "settings",
+      "href": "/settings"
+    },
+    {
+      "key": "reports",
+      "href": "/reports"
+    },
+    {
+      "key": "goals",
+      "href": "/goals"
+    },
+    {
+      "key": "recurring",
+      "href": "/recurring"
+    },
+    {
+      "key": "notifications",
+      "href": "/notifications"
+    }
+  ],
+  "primaryCta": {
+    "key": "primary",
+    "href": "/transactions"
+  },
+  "footerColumns": [
+    {
+      "key": "product",
+      "links": [
+        { "key": "dashboard", "href": "/" },
+        { "key": "transactions", "href": "/transactions" },
+        { "key": "budgets", "href": "/budgets" }
+      ]
+    },
+    {
+      "key": "account",
+      "links": [
+        { "key": "settings", "href": "/settings" },
+        { "key": "reports", "href": "/reports" },
+        { "key": "goals", "href": "/goals" },
+        { "key": "recurring", "href": "/recurring" },
+        { "key": "notifications", "href": "/notifications" }
+      ]
+    }
+  ],
+  "socialLinks": [],
+  "motion": {
+    "intensity": 3
+  },
+  "navbarVariant": "split",
+  "footerVariant": "columns"
+}
