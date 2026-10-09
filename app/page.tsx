@@ -106,33 +106,22 @@ export default function Home() {
               </span>
               <h1 className="mt-6 text-balance text-4xl font-bold tracking-tight md:text-6xl">
                 {t("home.hero.titleStart")}{" "}
-                <span className="text-gradient">{t("home.hero.titleHighlight")}</span>
+                <span className="text-gradient">dollar goes...</span>
               </h1>
               <p className="mt-6 max-w-lg text-pretty text-lg leading-relaxed text-muted-foreground">
                 {t("home.hero.subtitle")}
               </p>
               <div className="mt-10 flex flex-wrap items-center gap-4">
-                <Link
-                  href="/transactions"
-                  className="inline-flex items-center justify-center rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow transition-all duration-300 ease-out hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
-                >
+                <Link href="/transactions" className="inline-flex items-center justify-center rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow transition-all duration-300 ease-out hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring">
                   {t("home.hero.primaryCta")}
                 </Link>
-                <Link
-                  href="/budgets"
-                  className="inline-flex items-center justify-center rounded-lg border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground transition-all duration-300 ease-out hover:-translate-y-0.5 hover:bg-muted focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
-                >
+                <Link href="/budgets" className="inline-flex items-center justify-center rounded-lg border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground transition-all duration-300 ease-out hover:-translate-y-0.5 hover:bg-muted focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring">
                   {t("home.hero.secondaryCta")}
                 </Link>
               </div>
             </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 24, scale: 0.97 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
-              className="glass-strong rounded-2xl p-6 shadow-glow"
-            >
+            <motion.div initial={{ opacity: 0, y: 24, scale: 0.97 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }} className="glass-strong rounded-2xl p-6 shadow-glow">
               <div className="flex items-center justify-between">
                 <span className="text-sm font-medium text-muted-foreground">
                   {t("home.hero.cardLabel")}
@@ -148,33 +137,20 @@ export default function Home() {
                 {weeklySpend.map((d) => {
                   const max = Math.max(...weeklySpend.map((w) => w.amount), 1);
                   const h = Math.max(8, Math.round((d.amount / max) * 100));
-                  return (
-                    <div
-                      key={d.day}
-                      className="flex-1 rounded-t-sm bg-primary/70"
-                      style={{ height: `${h}%` }}
-                      title={`${d.day}: $${d.amount}`}
-                    />
-                  );
+                  return (<div key={d.day} className="flex-1 rounded-t-sm bg-primary/70" style={{ height: `${h}%` }} title={`${d.day}: $${d.amount}`} />);
                 })}
               </div>
 
               <div className="mt-6 flex flex-wrap gap-2">
-                {categories.map((cat) => (
-                  <span
-                    key={cat.name}
-                    className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-3 py-1 text-xs font-medium text-foreground"
-                  >
-                    <cat.icon className="h-3.5 w-3.5 text-primary" aria-hidden="true" />
-                    {cat.name}
-                  </span>
-                ))}
+                {categories.map((cat) => (<span key={cat.name} className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-3 py-1 text-xs font-medium text-foreground">
+                  <cat.icon className="h-3.5 w-3.5 text-primary" aria-hidden="true" />
+                  {cat.name}
+                </span>))}
               </div>
             </motion.div>
           </div>
         </section>
       </Reveal>
-
       {/* STATS */}
       <Reveal>
         <section id="summary" className="mx-auto max-w-6xl px-6 py-20 md:py-28">
@@ -184,28 +160,15 @@ export default function Home() {
             </h2>
             <p className="mt-4 text-pretty text-muted-foreground">{t("home.stats.subtitle")}</p>
           </div>
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            className="grid grid-cols-2 gap-4 lg:grid-cols-4"
-          >
-            {stats.map((stat) => (
-              <motion.div
-                key={stat.label}
-                variants={fadeInUp}
-                className="glass surface-elevated rounded-2xl p-6"
-              >
-                <stat.icon className="h-5 w-5 text-primary" aria-hidden="true" />
-                <div className="mt-4 text-2xl font-bold tracking-tight md:text-3xl">{stat.value}</div>
-                <div className="mt-1 text-sm text-muted-foreground">{stat.label}</div>
-              </motion.div>
-            ))}
+          <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+            {stats.map((stat) => (<motion.div key={stat.label} variants={fadeInUp} className="glass surface-elevated rounded-2xl p-6">
+              <stat.icon className="h-5 w-5 text-primary" aria-hidden="true" />
+              <div className="mt-4 text-2xl font-bold tracking-tight md:text-3xl">{stat.value}</div>
+              <div className="mt-1 text-sm text-muted-foreground">{stat.label}</div>
+            </motion.div>))}
           </motion.div>
         </section>
       </Reveal>
-
       {/* CATEGORIES */}
       <Reveal>
         <section id="categories" className="bg-secondary/40 py-20 md:py-28">
@@ -228,8 +191,7 @@ export default function Home() {
                       className={cn(
                         "rounded-2xl border border-border bg-card p-6 shadow-[0_1px_2px_rgba(0,0,0,0.04),0_8px_24px_-8px_rgba(0,0,0,0.12)] transition-all duration-300 ease-out hover:-translate-y-1",
                         i === 0 && "md:col-span-2",
-                      )}
-                    >
+                      )}>
                       <div className="flex items-start justify-between gap-4">
                         <div className="flex items-center gap-3">
                           <span className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
@@ -248,10 +210,7 @@ export default function Home() {
                         </div>
                       </div>
                       <div className="mt-5 h-2 w-full overflow-hidden rounded-full bg-muted">
-                        <div
-                          className="h-full rounded-full bg-primary transition-all duration-500"
-                          style={{ width: `${pct}%` }}
-                        />
+                        <div className="h-full rounded-full bg-primary transition-all duration-500" style={{ width: `${pct}%` }} />
                       </div>
                     </div>
                   </Reveal>
@@ -261,7 +220,6 @@ export default function Home() {
           </div>
         </section>
       </Reveal>
-
       {/* INSIGHTS */}
       <Reveal>
         <section id="insights" className="mx-auto max-w-6xl px-6 py-20 md:py-28">
@@ -302,10 +260,7 @@ export default function Home() {
                   return (
                     <div key={d.day} className="flex flex-1 flex-col items-center gap-2">
                       <div className="flex w-full flex-1 items-end">
-                        <div
-                          className="w-full rounded-t-md bg-primary/80 transition-all duration-300"
-                          style={{ height: `${h}%` }}
-                        />
+                        <div className="w-full rounded-t-md bg-primary/80 transition-all duration-300" style={{ height: `${h}%` }} />
                       </div>
                       <span className="text-xs text-muted-foreground">{d.day}</span>
                     </div>
@@ -316,7 +271,6 @@ export default function Home() {
           </div>
         </section>
       </Reveal>
-
       {/* FEATURES */}
       <Reveal>
         <section id="features" className="bg-secondary/40 py-20 md:py-28">
@@ -330,33 +284,20 @@ export default function Home() {
               </h2>
               <p className="mt-4 text-pretty text-muted-foreground">{t("home.features.subtitle")}</p>
             </div>
-            <motion.div
-              variants={staggerContainer}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-80px" }}
-              className="divide-y divide-border rounded-2xl border border-border bg-card"
-            >
-              {features.map((feature) => (
-                <motion.div
-                  key={feature.title}
-                  variants={fadeInUp}
-                  className="flex flex-col gap-4 p-6 sm:flex-row sm:items-center sm:gap-8"
-                >
-                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary/10">
-                    <feature.icon className="h-6 w-6 text-primary" aria-hidden="true" />
-                  </span>
-                  <div>
-                    <div className="font-semibold">{feature.title}</div>
-                    <div className="mt-1 text-sm text-muted-foreground">{feature.description}</div>
-                  </div>
-                </motion.div>
-              ))}
+            <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} className="divide-y divide-border rounded-2xl border border-border bg-card">
+              {features.map((feature) => (<motion.div key={feature.title} variants={fadeInUp} className="flex flex-col gap-4 p-6 sm:flex-row sm:items-center sm:gap-8">
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary/10">
+                  <feature.icon className="h-6 w-6 text-primary" aria-hidden="true" />
+                </span>
+                <div>
+                  <div className="font-semibold">{feature.title}</div>
+                  <div className="mt-1 text-sm text-muted-foreground">{feature.description}</div>
+                </div>
+              </motion.div>))}
             </motion.div>
           </div>
         </section>
       </Reveal>
-
       {/* CTA */}
       <Reveal>
         <section id="get-started" className="mx-auto max-w-6xl px-6 py-20 md:py-28">
@@ -368,16 +309,10 @@ export default function Home() {
               {t("home.cta.subtitle")}
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-              <Link
-                href="/transactions"
-                className="inline-flex items-center justify-center rounded-lg bg-primary-foreground px-6 py-3 text-sm font-semibold text-foreground transition-all duration-300 ease-out hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
-              >
+              <Link href="/transactions" className="inline-flex items-center justify-center rounded-lg bg-primary-foreground px-6 py-3 text-sm font-semibold text-foreground transition-all duration-300 ease-out hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring">
                 {t("home.cta.primaryCta")}
               </Link>
-              <Link
-                href="/budgets"
-                className="glass inline-flex items-center justify-center rounded-lg px-6 py-3 text-sm font-semibold text-primary-foreground transition-all duration-300 ease-out hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
-              >
+              <Link href="/budgets" className="glass inline-flex items-center justify-center rounded-lg px-6 py-3 text-sm font-semibold text-primary-foreground transition-all duration-300 ease-out hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring">
                 {t("home.cta.secondaryCta")}
               </Link>
             </div>
