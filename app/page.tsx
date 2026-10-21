@@ -1,14 +1,13 @@
 "use client";
 
 import { useMemo } from "react";
-import Link from "next/link";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
-import { Home as HomeIcon, ArrowUpDown, Circle, Lock, Layout, ArrowDown, ArrowUp, Calendar, Bell, Activity, Check, Sparkles } from 'lucide-react';
+import { Home as HomeIcon, ArrowUpDown, Circle, Lock, Layout, ArrowDown, ArrowUp, Calendar, Bell, Activity, Sparkles } from 'lucide-react';
 import { Reveal } from "@/components/Reveal";
 import { fadeInUp, staggerContainer } from "@/lib/motion";
 import { BRAND } from "@/lib/data";
-import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 
 type CategoryCopy = { name: string; description: string };
 type StatCopy = { value: string; label: string };
@@ -104,32 +103,20 @@ export default function Home() {
                 <Sparkles className="h-4 w-4 text-primary" aria-hidden="true" />
                 {BRAND.name}
               </span>
-              <h1 className="mt-6 text-balance text-4xl font-bold tracking-tight md:text-6xl">
+              <h1 className="mt-6 text-balance font-display text-4xl font-bold tracking-tight md:text-6xl">
                 {t("home.hero.titleStart")}{" "}
-                <span
-                  className="text-gradient"
-                  style={{
-                    color: "#f97316"
-                  }}>dollar goes...</span>
+                <span className="text-gradient">dollar goes...</span>
               </h1>
               <p className="mt-6 max-w-lg text-pretty text-lg leading-relaxed text-muted-foreground">
                 {t("home.hero.subtitle")}
               </p>
               <div className="mt-10 flex flex-wrap items-center gap-4">
-                <Link
-                  href="/transactions"
-                  className="inline-flex items-center justify-center rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow transition-all duration-300 ease-out hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
-                  style={{
-                    color: "#f97316",
-                    backgroundColor: "#ffffff",
-                    fontSize: "24px",
-                    padding: "32px"
-                  }}>
-                  {t("home.hero.primaryCta")}
-                </Link>
-                <Link href="/budgets" className="inline-flex items-center justify-center rounded-lg border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground transition-all duration-300 ease-out hover:-translate-y-0.5 hover:bg-muted focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring">
-                  {t("home.hero.secondaryCta")}
-                </Link>
+                <Button asChild size="lg" className="shadow-glow">
+                  <a href="/transactions">{t("home.hero.primaryCta")}</a>
+                </Button>
+                <Button asChild size="lg" variant="outline">
+                  <a href="/budgets">{t("home.hero.secondaryCta")}</a>
+                </Button>
               </div>
             </div>
 
@@ -142,7 +129,7 @@ export default function Home() {
                   {t("home.hero.cardBadge")}
                 </span>
               </div>
-              <div className="mt-4 text-4xl font-bold tracking-tight">{t("home.hero.cardAmount")}</div>
+              <div className="mt-4 font-display text-4xl font-bold tracking-tight">{t("home.hero.cardAmount")}</div>
               <p className="mt-1 text-sm text-muted-foreground">{t("home.hero.cardHint")}</p>
 
               <div className="mt-6 flex h-24 w-full items-end gap-1">
@@ -163,170 +150,121 @@ export default function Home() {
           </div>
         </section>
       </Reveal>
+
       {/* STATS */}
       <Reveal>
-        <section id="summary" className="mx-auto max-w-6xl px-6 py-20 md:py-28">
+        <section id="summary" className="mx-auto max-w-6xl px-6 py-16 md:py-20">
           <div className="mb-12 max-w-2xl">
-            <h2 className="text-balance text-3xl font-bold tracking-tight md:text-4xl">
+            <h2 className="text-balance font-display text-3xl font-bold tracking-tight md:text-4xl">
               {t("home.stats.title")}
             </h2>
             <p className="mt-4 text-pretty text-muted-foreground">{t("home.stats.subtitle")}</p>
           </div>
           <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} className="grid grid-cols-2 gap-4 lg:grid-cols-4">
-            {stats.map((stat) => (<motion.div key={stat.label} variants={fadeInUp} className="glass surface-elevated rounded-2xl p-6">
+            {stats.map((stat) => (<motion.div key={stat.label} variants={fadeInUp} className="glass surface-elevated rounded-lg p-6">
               <stat.icon className="h-5 w-5 text-primary" aria-hidden="true" />
-              <div className="mt-4 text-2xl font-bold tracking-tight md:text-3xl">{stat.value}</div>
+              <div className="mt-4 font-display text-2xl font-bold tracking-tight md:text-3xl">{stat.value}</div>
               <div className="mt-1 text-sm text-muted-foreground">{stat.label}</div>
             </motion.div>))}
           </motion.div>
         </section>
       </Reveal>
+
       {/* CATEGORIES */}
       <Reveal>
-        <section id="categories" className="bg-secondary/40 py-20 md:py-28">
+        <section id="categories" className="bg-secondary/40 py-16 md:py-20">
           <div className="mx-auto max-w-6xl px-6">
             <div className="mb-12 max-w-2xl">
-              <span className="text-sm font-semibold uppercase tracking-wide text-primary">
-                {t("home.categories.eyebrow")}
-              </span>
-              <h2 className="mt-3 text-balance text-3xl font-bold tracking-tight md:text-4xl">
+              <h2 className="text-balance font-display text-3xl font-bold tracking-tight md:text-4xl">
                 {t("home.categories.title")}
               </h2>
               <p className="mt-4 text-pretty text-muted-foreground">{t("home.categories.subtitle")}</p>
             </div>
-            <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
-              {categories.map((cat, i) => {
+            <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              {categories.map((cat) => {
                 const pct = Math.min(100, Math.round((cat.amount / cat.budget) * 100));
                 return (
-                  <Reveal key={cat.name} delay={i * 0.08}>
-                    <div
-                      className={cn(
-                        "rounded-2xl border border-border bg-card p-6 shadow-[0_1px_2px_rgba(0,0,0,0.04),0_8px_24px_-8px_rgba(0,0,0,0.12)] transition-all duration-300 ease-out hover:-translate-y-1",
-                        i === 0 && "md:col-span-2",
-                      )}>
-                      <div className="flex items-start justify-between gap-4">
-                        <div className="flex items-center gap-3">
-                          <span className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
-                            <cat.icon className="h-5 w-5 text-primary" aria-hidden="true" />
-                          </span>
-                          <div>
-                            <div className="font-semibold">{cat.name}</div>
-                            <div className="text-sm text-muted-foreground">{cat.description}</div>
-                          </div>
-                        </div>
-                        <div className="text-right">
-                          <div className="font-semibold">${cat.amount.toLocaleString("en-US")}</div>
-                          <div className="text-xs text-muted-foreground">
-                            {t("home.categories.of")} ${cat.budget.toLocaleString("en-US")}
-                          </div>
-                        </div>
-                      </div>
-                      <div className="mt-5 h-2 w-full overflow-hidden rounded-full bg-muted">
-                        <div className="h-full rounded-full bg-primary transition-all duration-500" style={{ width: `${pct}%` }} />
-                      </div>
+                  <motion.div key={cat.name} variants={fadeInUp} className="rounded-lg border border-border bg-card p-6 shadow-sm">
+                    <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                      <cat.icon className="h-5 w-5" aria-hidden="true" />
+                    </span>
+                    <h3 className="mt-4 font-display text-lg font-semibold">{cat.name}</h3>
+                    <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{cat.description}</p>
+                    <div className="mt-4 h-2 w-full overflow-hidden rounded-full bg-muted">
+                      <div className="h-full rounded-full bg-primary transition-all duration-500 ease-out" style={{ width: `${pct}%` }} />
                     </div>
-                  </Reveal>
+                    <p className="mt-2 text-xs font-medium text-muted-foreground">${cat.amount} / ${cat.budget}</p>
+                  </motion.div>
                 );
               })}
-            </div>
-          </div>
-        </section>
-      </Reveal>
-      {/* INSIGHTS */}
-      <Reveal>
-        <section id="insights" className="mx-auto max-w-6xl px-6 py-20 md:py-28">
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">
-            <div>
-              <span className="text-sm font-semibold uppercase tracking-wide text-primary">
-                {t("home.insights.eyebrow")}
-              </span>
-              <h2 className="mt-3 text-balance text-3xl font-bold tracking-tight md:text-4xl">
-                {t("home.insights.title")}
-              </h2>
-              <p className="mt-4 text-pretty text-muted-foreground">{t("home.insights.subtitle")}</p>
-              <ul className="mt-8 space-y-5">
-                {stepItems.map((step, i) => (
-                  <li key={step.title} className="flex gap-4">
-                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground">
-                      <Check className="h-4 w-4" aria-hidden="true" />
-                    </span>
-                    <div>
-                      <div className="font-semibold">{step.title}</div>
-                      <div className="text-sm text-muted-foreground">{step.description}</div>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="rounded-2xl border border-border bg-card p-6 shadow-[0_1px_2px_rgba(0,0,0,0.04),0_8px_24px_-8px_rgba(0,0,0,0.12)]">
-              <div className="mb-4 flex items-center justify-between">
-                <span className="text-sm font-medium text-muted-foreground">
-                  {t("home.insights.chartTitle")}
-                </span>
-                <Activity className="h-4 w-4 text-primary" aria-hidden="true" />
-              </div>
-              <div className="flex h-64 w-full items-end gap-2">
-                {weeklySpend.map((d) => {
-                  const max = Math.max(...weeklySpend.map((w) => w.amount), 1);
-                  const h = Math.max(6, Math.round((d.amount / max) * 100));
-                  return (
-                    <div key={d.day} className="flex flex-1 flex-col items-center gap-2">
-                      <div className="flex w-full flex-1 items-end">
-                        <div className="w-full rounded-t-md bg-primary/80 transition-all duration-300" style={{ height: `${h}%` }} />
-                      </div>
-                      <span className="text-xs text-muted-foreground">{d.day}</span>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-        </section>
-      </Reveal>
-      {/* FEATURES */}
-      <Reveal>
-        <section id="features" className="bg-secondary/40 py-20 md:py-28">
-          <div className="mx-auto max-w-6xl px-6">
-            <div className="mb-12 max-w-2xl">
-              <span className="text-sm font-semibold uppercase tracking-wide text-primary">
-                {t("home.features.eyebrow")}
-              </span>
-              <h2 className="mt-3 text-balance text-3xl font-bold tracking-tight md:text-4xl">
-                {t("home.features.title")}
-              </h2>
-              <p className="mt-4 text-pretty text-muted-foreground">{t("home.features.subtitle")}</p>
-            </div>
-            <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} className="divide-y divide-border rounded-2xl border border-border bg-card">
-              {features.map((feature) => (<motion.div key={feature.title} variants={fadeInUp} className="flex flex-col gap-4 p-6 sm:flex-row sm:items-center sm:gap-8">
-                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary/10">
-                  <feature.icon className="h-6 w-6 text-primary" aria-hidden="true" />
-                </span>
-                <div>
-                  <div className="font-semibold">{feature.title}</div>
-                  <div className="mt-1 text-sm text-muted-foreground">{feature.description}</div>
-                </div>
-              </motion.div>))}
             </motion.div>
           </div>
         </section>
       </Reveal>
+
+      {/* FEATURES */}
+      <Reveal>
+        <section id="features" className="mx-auto max-w-6xl px-6 py-16 md:py-20">
+          <div className="mb-12 max-w-2xl">
+            <h2 className="text-balance font-display text-3xl font-bold tracking-tight md:text-4xl">
+              {t("home.features.title")}
+            </h2>
+            <p className="mt-4 text-pretty text-muted-foreground">{t("home.features.subtitle")}</p>
+          </div>
+          <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {features.map((feature) => (
+              <motion.div key={feature.title} variants={fadeInUp} className="rounded-lg border border-border bg-card p-6 shadow-sm">
+                <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                  <feature.icon className="h-5 w-5" aria-hidden="true" />
+                </span>
+                <h3 className="mt-4 font-display text-lg font-semibold">{feature.title}</h3>
+                <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{feature.description}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </section>
+      </Reveal>
+
+      {/* INSIGHTS / STEPS */}
+      <Reveal>
+        <section id="insights" className="bg-secondary/40 py-16 md:py-20">
+          <div className="mx-auto max-w-6xl px-6">
+            <div className="mb-12 max-w-2xl">
+              <h2 className="text-balance font-display text-3xl font-bold tracking-tight md:text-4xl">
+                {t("home.insights.title")}
+              </h2>
+              <p className="mt-4 text-pretty text-muted-foreground">{t("home.insights.subtitle")}</p>
+            </div>
+            <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} className="grid grid-cols-1 gap-6 md:grid-cols-3">
+              {stepItems.map((step, i) => (
+                <motion.div key={step.title} variants={fadeInUp} className="rounded-lg border border-border bg-card p-6 shadow-sm">
+                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-sm font-semibold text-primary-foreground">
+                    {i + 1}
+                  </span>
+                  <h3 className="mt-4 font-display text-lg font-semibold">{step.title}</h3>
+                  <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{step.description}</p>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+        </section>
+      </Reveal>
+
       {/* CTA */}
       <Reveal>
-        <section id="get-started" className="mx-auto max-w-6xl px-6 py-20 md:py-28">
-          <div className="relative overflow-hidden rounded-2xl bg-gradient-brand px-8 py-16 text-center shadow-glow md:px-16">
-            <h2 className="text-balance text-3xl font-bold tracking-tight text-primary-foreground md:text-4xl">
+        <section id="cta" className="bg-gradient-brand py-16 md:py-20">
+          <div className="mx-auto max-w-4xl px-6 text-center">
+            <h2 className="text-balance font-display text-3xl font-bold tracking-tight text-primary-foreground md:text-4xl">
               {t("home.cta.title")}
             </h2>
-            <p className="mx-auto mt-4 max-w-xl text-pretty text-primary-foreground/80">
-              {t("home.cta.subtitle")}
-            </p>
+            <p className="mt-4 text-pretty text-primary-foreground/80">{t("home.cta.subtitle")}</p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-              <Link href="/transactions" className="inline-flex items-center justify-center rounded-lg bg-primary-foreground px-6 py-3 text-sm font-semibold text-foreground transition-all duration-300 ease-out hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring">
-                {t("home.cta.primaryCta")}
-              </Link>
-              <Link href="/budgets" className="glass inline-flex items-center justify-center rounded-lg px-6 py-3 text-sm font-semibold text-primary-foreground transition-all duration-300 ease-out hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring">
-                {t("home.cta.secondaryCta")}
-              </Link>
+              <Button asChild size="lg" variant="secondary">
+                <a href="/transactions">{t("home.cta.primary")}</a>
+              </Button>
+              <Button asChild size="lg" variant="outline" className="glass border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10">
+                <a href="/budgets">{t("home.cta.secondary")}</a>
+              </Button>
             </div>
           </div>
         </section>

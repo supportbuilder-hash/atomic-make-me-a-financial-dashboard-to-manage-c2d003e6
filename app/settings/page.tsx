@@ -5,6 +5,9 @@ import { useTranslations } from "next-intl";
 import { Home, ArrowUpDown, Heart, Star, Circle, Plus, Trash2, Edit, Save, X, Check, Download, FileText, Settings as SettingsIcon, Info, AlertTriangle } from 'lucide-react';
 import { Reveal } from "@/components/Reveal";
 import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Select } from "@/components/ui/select";
 
 type IconKey = "home" | "transport" | "food" | "saving" | "generic";
 
@@ -26,6 +29,28 @@ function IconBadge({ icon }: { icon: IconKey }) {
     <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
       <Icon className="h-5 w-5" aria-hidden="true" />
     </span>
+  );
+}
+
+function SectionHeader({
+  eyebrow,
+  title,
+  subtitle,
+}: {
+  eyebrow?: string;
+  title: string;
+  subtitle?: string;
+}) {
+  return (
+    <div className="max-w-xl">
+      {eyebrow && (
+        <span className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-primary">
+          {eyebrow}
+        </span>
+      )}
+      <h2 className="mt-3 font-display text-2xl font-bold tracking-tight text-foreground">{title}</h2>
+      {subtitle && <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{subtitle}</p>}
+    </div>
   );
 }
 
@@ -147,7 +172,7 @@ export default function SettingsPage() {
   }
 
   return (
-    <main className="min-h-screen bg-background">
+    <main className="bg-background text-foreground">
       {/* Hero */}
       <Reveal>
         <section className="relative overflow-hidden bg-mesh py-16 md:py-20">
@@ -170,62 +195,45 @@ export default function SettingsPage() {
       <Reveal>
         <section className="py-16 md:py-20">
           <div className="mx-auto max-w-5xl px-6">
-            <div className="max-w-xl">
-              <h2 className="font-display text-2xl font-bold tracking-tight text-foreground">
-                {t("settings.general.title")}
-              </h2>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                {t("settings.general.subtitle")}
-              </p>
-            </div>
+            <SectionHeader
+              eyebrow={t("settings.hero.eyebrow")}
+              title={t("settings.general.title")}
+              subtitle={t("settings.general.subtitle")}
+            />
 
-            <div className="surface-elevated mt-8 rounded-2xl border border-border bg-card p-6 md:p-8">
+            <div className="surface-elevated mt-8 rounded-lg border border-border bg-card p-6 shadow-sm md:p-8">
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                 <div>
                   <label htmlFor="currency-select" className="text-sm font-medium text-foreground">
                     {t("settings.general.currencyLabel")}
                   </label>
-                  <select
+                  <Select
                     id="currency-select"
                     value={currency}
                     onChange={(e) => setCurrency(e.target.value)}
-                    className="mt-2 w-full rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                  >
-                    {currencyOptions.map((opt) => (
-                      <option key={opt.value} value={opt.value}>
-                        {opt.label}
-                      </option>
-                    ))}
-                  </select>
+                    options={currencyOptions.map((opt) => ({ value: opt.value, label: opt.label }))}
+                    className="mt-2"
+                  />
                 </div>
                 <div>
                   <label htmlFor="date-format-select" className="text-sm font-medium text-foreground">
                     {t("settings.general.dateFormatLabel")}
                   </label>
-                  <select
+                  <Select
                     id="date-format-select"
                     value={dateFormat}
                     onChange={(e) => setDateFormat(e.target.value)}
-                    className="mt-2 w-full rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                  >
-                    {dateFormatOptions.map((opt) => (
-                      <option key={opt.value} value={opt.value}>
-                        {opt.label}
-                      </option>
-                    ))}
-                  </select>
+                    options={dateFormatOptions.map((opt) => ({ value: opt.value, label: opt.label }))}
+                    className="mt-2"
+                  />
                 </div>
               </div>
 
               <div className="mt-8 flex flex-wrap items-center gap-4">
-                <button
-                  type="button"
-                  onClick={handleSaveGeneral}
-                  className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-glow transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring motion-reduce:transition-none"
-                >
+                <Button type="button" variant="default" onClick={handleSaveGeneral}>
                   <Save className="h-4 w-4" aria-hidden="true" />
                   {t("settings.general.saveButton")}
-                </button>
+                </Button>
                 {savedGeneral && (
                   <span className="inline-flex items-center gap-1.5 text-sm font-medium text-primary">
                     <Check className="h-4 w-4" aria-hidden="true" />
@@ -242,33 +250,29 @@ export default function SettingsPage() {
       <Reveal>
         <section className="bg-muted/40 py-16 md:py-20">
           <div className="mx-auto max-w-5xl px-6">
-            <div className="max-w-xl">
-              <h2 className="font-display text-2xl font-bold tracking-tight text-foreground">
-                {t("settings.categories.title")}
-              </h2>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                {t("settings.categories.subtitle")}
-              </p>
-            </div>
+            <SectionHeader
+              eyebrow={t("settings.hero.eyebrow")}
+              title={t("settings.categories.title")}
+              subtitle={t("settings.categories.subtitle")}
+            />
 
             <div className="mt-8 grid grid-cols-1 gap-3">
               {categories.length === 0 && (
-                <p className="rounded-xl border border-dashed border-border bg-card p-6 text-center text-sm text-muted-foreground">
+                <p className="rounded-lg border border-dashed border-border bg-card p-6 text-center text-sm text-muted-foreground shadow-sm">
                   {t("settings.categories.emptyState")}
                 </p>
               )}
               {categories.map((cat) => (
                 <div
                   key={cat.id}
-                  className="flex items-center gap-4 rounded-2xl border border-border bg-card p-4 shadow-[0_1px_2px_rgba(0,0,0,0.04),0_8px_24px_-8px_rgba(0,0,0,0.12)] transition-all duration-300 ease-out hover:-translate-y-0.5"
+                  className="flex items-center gap-4 rounded-lg border border-border bg-card p-4 shadow-sm transition-all duration-300 ease-out hover:-translate-y-0.5"
                 >
                   <IconBadge icon={cat.icon} />
                   <div className="min-w-0 flex-1">
                     {editingId === cat.id ? (
-                      <input
+                      <Input
                         value={editingName}
                         onChange={(e) => setEditingName(e.target.value)}
-                        className="w-full rounded-lg border border-border bg-background px-3 py-1.5 text-sm text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                         aria-label={t("settings.categories.editAria")}
                       />
                     ) : (
@@ -278,41 +282,47 @@ export default function SettingsPage() {
                   <div className="flex shrink-0 items-center gap-1.5">
                     {editingId === cat.id ? (
                       <>
-                        <button
+                        <Button
                           type="button"
+                          variant="ghost"
+                          size="icon"
                           onClick={() => saveEdit(cat.id)}
                           aria-label={t("settings.categories.saveAria")}
-                          className="flex h-9 w-9 items-center justify-center rounded-lg text-primary transition-colors hover:bg-primary/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                          className="text-primary hover:bg-primary/10"
                         >
                           <Check className="h-4 w-4" aria-hidden="true" />
-                        </button>
-                        <button
+                        </Button>
+                        <Button
                           type="button"
+                          variant="ghost"
+                          size="icon"
                           onClick={() => setEditingId(null)}
                           aria-label={t("settings.categories.cancelAria")}
-                          className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                         >
                           <X className="h-4 w-4" aria-hidden="true" />
-                        </button>
+                        </Button>
                       </>
                     ) : (
                       <>
-                        <button
+                        <Button
                           type="button"
+                          variant="ghost"
+                          size="icon"
                           onClick={() => startEdit(cat)}
                           aria-label={t("settings.categories.editAria")}
-                          className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                         >
                           <Edit className="h-4 w-4" aria-hidden="true" />
-                        </button>
-                        <button
+                        </Button>
+                        <Button
                           type="button"
+                          variant="ghost"
+                          size="icon"
                           onClick={() => removeCategory(cat.id)}
                           aria-label={t("settings.categories.deleteAria")}
-                          className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-destructive/10 hover:text-destructive focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                          className="text-muted-foreground hover:bg-destructive/10 hover:text-destructive"
                         >
                           <Trash2 className="h-4 w-4" aria-hidden="true" />
-                        </button>
+                        </Button>
                       </>
                     )}
                   </div>
@@ -320,33 +330,22 @@ export default function SettingsPage() {
               ))}
             </div>
 
-            <div className="surface-elevated mt-6 rounded-2xl border border-border bg-card p-5">
+            <div className="surface-elevated mt-6 rounded-lg border border-border bg-card p-5 shadow-sm">
               <div className="grid grid-cols-1 gap-3 sm:grid-cols-[1fr_auto_auto]">
-                <input
+                <Input
                   value={newName}
                   onChange={(e) => setNewName(e.target.value)}
                   placeholder={t("settings.categories.addPlaceholder")}
-                  className="rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                 />
-                <select
+                <Select
                   value={newIcon}
                   onChange={(e) => setNewIcon(e.target.value as IconKey)}
-                  className="rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                >
-                  {iconOptions.map((opt) => (
-                    <option key={opt.value} value={opt.value}>
-                      {opt.label}
-                    </option>
-                  ))}
-                </select>
-                <button
-                  type="button"
-                  onClick={addCategory}
-                  className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring motion-reduce:transition-none"
-                >
+                  options={iconOptions.map((opt) => ({ value: opt.value, label: opt.label }))}
+                />
+                <Button type="button" variant="default" onClick={addCategory}>
                   <Plus className="h-4 w-4" aria-hidden="true" />
                   {t("settings.categories.addButton")}
-                </button>
+                </Button>
               </div>
             </div>
           </div>
@@ -357,33 +356,30 @@ export default function SettingsPage() {
       <Reveal>
         <section className="py-16 md:py-20">
           <div className="mx-auto max-w-5xl px-6">
-            <div className="max-w-xl">
-              <h2 className="font-display text-2xl font-bold tracking-tight text-foreground">
-                {t("settings.budgetDefaults.title")}
-              </h2>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                {t("settings.budgetDefaults.subtitle")}
-              </p>
-            </div>
+            <SectionHeader
+              eyebrow={t("settings.hero.eyebrow")}
+              title={t("settings.budgetDefaults.title")}
+              subtitle={t("settings.budgetDefaults.subtitle")}
+            />
 
             <div className="mt-8 grid grid-cols-1 gap-4 lg:grid-cols-[1.4fr_1fr]">
               <div className="space-y-3">
                 {categories.map((cat) => (
                   <div
                     key={cat.id}
-                    className="flex items-center gap-4 rounded-2xl border border-border bg-card p-4"
+                    className="flex items-center gap-4 rounded-lg border border-border bg-card p-4 shadow-sm"
                   >
                     <IconBadge icon={cat.icon} />
                     <span className="min-w-0 flex-1 truncate font-medium text-foreground">{cat.name}</span>
                     <div className="flex items-center gap-2">
-                      <input
+                      <Input
                         type="number"
                         min={0}
                         max={100}
                         value={allocations[cat.id] ?? 0}
                         onChange={(e) => updateAllocation(cat.id, Number(e.target.value))}
                         aria-label={cat.name}
-                        className="w-20 rounded-lg border border-border bg-background px-3 py-1.5 text-right text-sm text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                        className="w-20 text-right"
                       />
                       <span className="text-sm text-muted-foreground">%</span>
                     </div>
@@ -391,7 +387,7 @@ export default function SettingsPage() {
                 ))}
               </div>
 
-              <div className="surface-elevated h-fit rounded-2xl border border-border bg-card p-6">
+              <div className="surface-elevated h-fit rounded-lg border border-border bg-card p-6 shadow-sm">
                 <p className="text-sm font-medium text-foreground">{t("settings.budgetDefaults.totalLabel")}</p>
                 <div className="mt-3 h-2.5 w-full overflow-hidden rounded-full bg-muted">
                   <div
@@ -409,14 +405,10 @@ export default function SettingsPage() {
                     {t("settings.budgetDefaults.totalWarning")}
                   </p>
                 )}
-                <button
-                  type="button"
-                  onClick={handleSaveBudget}
-                  className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-glow transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring motion-reduce:transition-none"
-                >
+                <Button type="button" variant="default" onClick={handleSaveBudget} className="mt-5 w-full">
                   <Save className="h-4 w-4" aria-hidden="true" />
                   {t("settings.budgetDefaults.saveButton")}
-                </button>
+                </Button>
                 {savedBudget && (
                   <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-primary">
                     <Check className="h-4 w-4" aria-hidden="true" />
@@ -433,23 +425,20 @@ export default function SettingsPage() {
       <Reveal>
         <section className="relative overflow-hidden bg-mesh py-16 md:py-20">
           <div className="mx-auto max-w-5xl px-6">
-            <div className="max-w-xl">
-              <h2 className="font-display text-2xl font-bold tracking-tight text-foreground">
-                {t("settings.export.title")}
-              </h2>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                {t("settings.export.subtitle")}
-              </p>
-            </div>
+            <SectionHeader
+              eyebrow={t("settings.hero.eyebrow")}
+              title={t("settings.export.title")}
+              subtitle={t("settings.export.subtitle")}
+            />
 
-            <div className="glass mt-8 grid grid-cols-1 gap-8 rounded-2xl p-6 md:grid-cols-2 md:p-8">
+            <div className="glass mt-8 grid grid-cols-1 gap-8 rounded-lg p-6 shadow-sm md:grid-cols-2 md:p-8">
               <div>
                 <p className="text-sm font-semibold text-foreground">{t("settings.export.dataTypesLabel")}</p>
                 <div className="mt-3 space-y-2.5">
                   {dataTypes.map((dt) => (
                     <label
                       key={dt.id}
-                      className="flex cursor-pointer items-center gap-3 rounded-lg border border-border bg-card px-3.5 py-2.5 transition-colors hover:bg-muted"
+                      className="flex cursor-pointer items-center gap-3 rounded-lg border border-border bg-card px-3.5 py-2.5 shadow-sm transition-colors hover:bg-muted"
                     >
                       <input
                         type="checkbox"
@@ -464,32 +453,22 @@ export default function SettingsPage() {
 
                 <p className="mt-6 text-sm font-semibold text-foreground">{t("settings.export.formatLabel")}</p>
                 <div className="mt-3 flex gap-3">
-                  <button
+                  <Button
                     type="button"
+                    variant={exportFormat === "csv" ? "default" : "outline"}
                     onClick={() => setExportFormat("csv")}
-                    className={cn(
-                      "flex items-center gap-2 rounded-lg border px-4 py-2 text-sm font-medium transition-colors",
-                      exportFormat === "csv"
-                        ? "border-primary bg-primary/10 text-primary"
-                        : "border-border bg-card text-muted-foreground hover:bg-muted",
-                    )}
                   >
                     <FileText className="h-4 w-4" aria-hidden="true" />
                     {t("settings.export.csvLabel")}
-                  </button>
-                  <button
+                  </Button>
+                  <Button
                     type="button"
+                    variant={exportFormat === "pdf" ? "default" : "outline"}
                     onClick={() => setExportFormat("pdf")}
-                    className={cn(
-                      "flex items-center gap-2 rounded-lg border px-4 py-2 text-sm font-medium transition-colors",
-                      exportFormat === "pdf"
-                        ? "border-primary bg-primary/10 text-primary"
-                        : "border-border bg-card text-muted-foreground hover:bg-muted",
-                    )}
                   >
                     <FileText className="h-4 w-4" aria-hidden="true" />
                     {t("settings.export.pdfLabel")}
-                  </button>
+                  </Button>
                 </div>
               </div>
 
@@ -497,32 +476,23 @@ export default function SettingsPage() {
                 <label htmlFor="export-range" className="text-sm font-semibold text-foreground">
                   {t("settings.export.rangeLabel")}
                 </label>
-                <select
+                <Select
                   id="export-range"
                   value={exportRange}
                   onChange={(e) => setExportRange(e.target.value)}
-                  className="mt-3 rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                >
-                  {rangeOptions.map((opt) => (
-                    <option key={opt.value} value={opt.value}>
-                      {opt.label}
-                    </option>
-                  ))}
-                </select>
+                  options={rangeOptions.map((opt) => ({ value: opt.value, label: opt.label }))}
+                  className="mt-3"
+                />
 
-                <div className="mt-6 flex items-start gap-2 rounded-lg border border-border bg-card px-3.5 py-3 text-sm text-muted-foreground">
+                <div className="mt-6 flex items-start gap-2 rounded-lg border border-border bg-card px-3.5 py-3 text-sm text-muted-foreground shadow-sm">
                   <Info className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
                   {t("settings.export.infoNote")}
                 </div>
 
-                <button
-                  type="button"
-                  onClick={handleExport}
-                  className="mt-auto inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-glow transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring motion-reduce:transition-none"
-                >
+                <Button type="button" variant="default" onClick={handleExport} className="mt-auto">
                   <Download className="h-4 w-4" aria-hidden="true" />
                   {t("settings.export.exportButton")}
-                </button>
+                </Button>
                 {exportDone && (
                   <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-primary">
                     <Check className="h-4 w-4" aria-hidden="true" />

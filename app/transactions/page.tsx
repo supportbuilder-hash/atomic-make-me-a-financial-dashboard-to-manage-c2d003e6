@@ -4,6 +4,9 @@ import { useEffect, useMemo, useState, type FormEvent } from "react";
 import { useTranslations } from "next-intl";
 import { motion, AnimatePresence } from "framer-motion";
 import { Reveal } from "@/components/Reveal";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Badge } from "@/components/ui/badge";
 import { Plus, Search, Check, X, Edit, Trash2, Download, ArrowLeft, ArrowRight, ArrowUp, ArrowDown, ArrowUpDown, Calendar } from 'lucide-react';
 
 type Category = "Rent" | "Transport" | "Food" | "Saving";
@@ -271,41 +274,40 @@ export default function TransactionsPage() {
   }
 
   return (
-    <main className="min-h-screen bg-background">
+    <main className="bg-background text-foreground">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
         <Reveal>
           <section className="mb-10">
             <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
               <div>
-                <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+                <span className="text-xs font-semibold uppercase tracking-wide text-primary">
+                  {t("transactionsPage.heading")}
+                </span>
+                <h1 className="mt-1 text-3xl font-display font-semibold tracking-tight text-foreground">
                   {t("transactionsPage.heading")}
                 </h1>
                 <p className="mt-2 max-w-xl text-pretty text-muted-foreground">{t("transactionsPage.subtitle")}</p>
               </div>
-              <button
-                type="button"
-                onClick={openAdd}
-                className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:opacity-90"
-              >
+              <Button type="button" onClick={openAdd} className="gap-2">
                 <Plus className="h-4 w-4" aria-hidden="true" />
                 {t("transactionsPage.addButton")}
-              </button>
+              </Button>
             </div>
 
             <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
-              <div className="rounded-2xl border border-border bg-card p-5">
+              <div className="rounded-lg border border-border bg-card p-5 shadow-sm">
                 <div className="text-2xl font-bold text-foreground">{formatUSD(totalSpent)}</div>
                 <div className="mt-1 text-sm text-muted-foreground">{t("transactionsPage.stats.totalSpent")}</div>
               </div>
-              <div className="rounded-2xl border border-border bg-card p-5">
+              <div className="rounded-lg border border-border bg-card p-5 shadow-sm">
                 <div className="text-2xl font-bold text-foreground">{transactions.length}</div>
                 <div className="mt-1 text-sm text-muted-foreground">{t("transactionsPage.stats.transactionCount")}</div>
               </div>
-              <div className="rounded-2xl border border-border bg-card p-5">
+              <div className="rounded-lg border border-border bg-card p-5 shadow-sm">
                 <div className="text-2xl font-bold text-foreground">{formatUSD(avgTransaction)}</div>
                 <div className="mt-1 text-sm text-muted-foreground">{t("transactionsPage.stats.avgTransaction")}</div>
               </div>
-              <div className="rounded-2xl border border-border bg-card p-5">
+              <div className="rounded-lg border border-border bg-card p-5 shadow-sm">
                 <div className="text-2xl font-bold text-primary">{topCategory}</div>
                 <div className="mt-1 text-sm text-muted-foreground">{t("transactionsPage.stats.topCategory")}</div>
               </div>
@@ -314,7 +316,7 @@ export default function TransactionsPage() {
         </Reveal>
 
         <Reveal delay={0.05}>
-          <section className="mb-6 rounded-2xl border border-border bg-card p-5">
+          <section className="mb-6 rounded-lg border border-border bg-card p-5 shadow-sm">
             <div className="flex flex-col gap-4 md:flex-row md:flex-wrap md:items-end md:justify-between">
               <div className="min-w-[220px] flex-1">
                 <label htmlFor="txn-search" className="mb-1 block text-sm font-medium text-foreground">
@@ -322,7 +324,7 @@ export default function TransactionsPage() {
                 </label>
                 <div className="relative">
                   <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" aria-hidden="true" />
-                  <input
+                  <Input
                     id="txn-search"
                     type="text"
                     value={search}
@@ -331,7 +333,7 @@ export default function TransactionsPage() {
                       setPage(1);
                     }}
                     placeholder={t("transactionsPage.filters.searchPlaceholder")}
-                    className="w-full rounded-lg border border-border bg-background py-2 pl-9 pr-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+                    className="pl-9"
                   />
                 </div>
               </div>
@@ -363,7 +365,7 @@ export default function TransactionsPage() {
                   <Calendar className="h-3.5 w-3.5" aria-hidden="true" />
                   {t("transactionsPage.filters.dateFromLabel")}
                 </label>
-                <input
+                <Input
                   id="txn-date-from"
                   type="date"
                   value={dateFrom}
@@ -371,7 +373,6 @@ export default function TransactionsPage() {
                     setDateFrom(e.target.value);
                     setPage(1);
                   }}
-                  className="rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
                 />
               </div>
 
@@ -380,7 +381,7 @@ export default function TransactionsPage() {
                   <Calendar className="h-3.5 w-3.5" aria-hidden="true" />
                   {t("transactionsPage.filters.dateToLabel")}
                 </label>
-                <input
+                <Input
                   id="txn-date-to"
                   type="date"
                   value={dateTo}
@@ -388,23 +389,18 @@ export default function TransactionsPage() {
                     setDateTo(e.target.value);
                     setPage(1);
                   }}
-                  className="rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
                 />
               </div>
 
-              <button
-                type="button"
-                onClick={clearFilters}
-                className="rounded-lg border border-border px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-muted"
-              >
+              <Button type="button" variant="outline" size="sm" onClick={clearFilters}>
                 {t("transactionsPage.filters.clearButton")}
-              </button>
+              </Button>
             </div>
           </section>
         </Reveal>
 
         <Reveal delay={0.1}>
-          <section className="overflow-hidden rounded-2xl border border-border bg-card">
+          <section className="rounded-lg border border-border bg-card shadow-sm overflow-hidden">
             {selected.size > 0 && (
               <div className="flex flex-col gap-3 border-b border-border bg-primary/5 px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
                 <span className="text-sm font-medium text-foreground">
@@ -423,36 +419,20 @@ export default function TransactionsPage() {
                       </option>
                     ))}
                   </select>
-                  <button
-                    type="button"
-                    onClick={handleBulkCategorize}
-                    className="rounded-lg border border-border bg-background px-3 py-1.5 text-sm font-medium text-foreground transition-colors hover:bg-muted"
-                  >
+                  <Button type="button" variant="outline" size="sm" onClick={handleBulkCategorize}>
                     {t("transactionsPage.bulk.categorizeButton")}
-                  </button>
-                  <button
-                    type="button"
-                    onClick={handleBulkExport}
-                    className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-background px-3 py-1.5 text-sm font-medium text-foreground transition-colors hover:bg-muted"
-                  >
+                  </Button>
+                  <Button type="button" variant="outline" size="sm" onClick={handleBulkExport} className="gap-1.5">
                     <Download className="h-4 w-4" aria-hidden="true" />
                     {t("transactionsPage.bulk.exportButton")}
-                  </button>
-                  <button
-                    type="button"
-                    onClick={handleBulkDelete}
-                    className="inline-flex items-center gap-1.5 rounded-lg bg-primary px-3 py-1.5 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
-                  >
+                  </Button>
+                  <Button type="button" size="sm" onClick={handleBulkDelete} className="gap-1.5">
                     <Trash2 className="h-4 w-4" aria-hidden="true" />
                     {t("transactionsPage.bulk.deleteButton")}
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setSelected(new Set())}
-                    className="rounded-lg px-3 py-1.5 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-                  >
+                  </Button>
+                  <Button type="button" variant="ghost" size="sm" onClick={() => setSelected(new Set())}>
                     {t("transactionsPage.bulk.cancelButton")}
-                  </button>
+                  </Button>
                 </div>
               </div>
             )}
@@ -509,27 +489,29 @@ export default function TransactionsPage() {
                       <td className="px-4 py-3 text-foreground/80">{formatDate(row.date)}</td>
                       <td className="px-4 py-3 font-medium text-foreground">{row.description}</td>
                       <td className="px-4 py-3">
-                        <span className="rounded-full bg-muted px-3 py-1 text-xs font-medium text-foreground">{row.category}</span>
+                        <Badge variant="secondary">{row.category}</Badge>
                       </td>
                       <td className="px-4 py-3 text-right font-semibold text-foreground">-{formatUSD(row.amount)}</td>
                       <td className="px-4 py-3">
                         <div className="flex items-center justify-end gap-2">
-                          <button
+                          <Button
                             type="button"
+                            variant="ghost"
+                            size="icon"
                             onClick={() => openEdit(row)}
                             aria-label={t("transactionsPage.table.editAria")}
-                            className="rounded-lg p-2 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
                           >
                             <Edit className="h-4 w-4" aria-hidden="true" />
-                          </button>
-                          <button
+                          </Button>
+                          <Button
                             type="button"
+                            variant="ghost"
+                            size="icon"
                             onClick={() => handleDelete(row.id)}
                             aria-label={t("transactionsPage.table.deleteAria")}
-                            className="rounded-lg p-2 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
                           >
                             <Trash2 className="h-4 w-4" aria-hidden="true" />
-                          </button>
+                          </Button>
                         </div>
                       </td>
                     </tr>
@@ -544,33 +526,37 @@ export default function TransactionsPage() {
                 </tbody>
               </table>
             </div>
-
-            <div className="flex items-center justify-between border-t border-border px-4 py-3">
-              <span className="text-sm text-muted-foreground">
-                {t("transactionsPage.pagination.pageInfo", { page, total: totalPages })}
-              </span>
-              <div className="flex items-center gap-2">
-                <button
-                  type="button"
-                  disabled={page <= 1}
-                  onClick={() => setPage((p) => Math.max(1, p - 1))}
-                  aria-label={t("transactionsPage.pagination.previous")}
-                  className="rounded-lg border border-border p-2 text-foreground transition-colors hover:bg-muted disabled:cursor-not-allowed disabled:opacity-40"
-                >
-                  <ArrowLeft className="h-4 w-4" aria-hidden="true" />
-                </button>
-                <button
-                  type="button"
-                  disabled={page >= totalPages}
-                  onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
-                  aria-label={t("transactionsPage.pagination.next")}
-                  className="rounded-lg border border-border p-2 text-foreground transition-colors hover:bg-muted disabled:cursor-not-allowed disabled:opacity-40"
-                >
-                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                </button>
-              </div>
-            </div>
           </section>
+        </Reveal>
+
+        <Reveal delay={0.15}>
+          <div className="mt-4 flex items-center justify-between rounded-lg border border-border bg-card px-4 py-3 shadow-sm">
+            <span className="text-sm text-muted-foreground">
+              {t("transactionsPage.pagination.pageInfo", { page, total: totalPages })}
+            </span>
+            <div className="flex items-center gap-2">
+              <Button
+                type="button"
+                variant="outline"
+                size="icon"
+                disabled={page <= 1}
+                onClick={() => setPage((p) => Math.max(1, p - 1))}
+                aria-label={t("transactionsPage.pagination.previous")}
+              >
+                <ArrowLeft className="h-4 w-4" aria-hidden="true" />
+              </Button>
+              <Button
+                type="button"
+                variant="outline"
+                size="icon"
+                disabled={page >= totalPages}
+                onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
+                aria-label={t("transactionsPage.pagination.next")}
+              >
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </Button>
+            </div>
+          </div>
         </Reveal>
       </div>
 
@@ -584,7 +570,7 @@ export default function TransactionsPage() {
             onClick={closeModal}
           >
             <motion.div
-              className="w-full max-w-md rounded-2xl border border-border bg-card p-6 shadow-xl"
+              className="w-full max-w-md rounded-lg border border-border bg-card p-6 shadow-xl"
               initial={{ opacity: 0, scale: 0.95, y: 12 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 12 }}
@@ -592,29 +578,29 @@ export default function TransactionsPage() {
               onClick={(e) => e.stopPropagation()}
             >
               <div className="mb-4 flex items-center justify-between">
-                <h2 className="text-lg font-semibold text-foreground">
+                <h2 className="text-lg font-display font-semibold text-foreground">
                   {editingId ? t("transactionsPage.form.editTitle") : t("transactionsPage.form.addTitle")}
                 </h2>
-                <button
+                <Button
                   type="button"
+                  variant="ghost"
+                  size="icon"
                   onClick={closeModal}
                   aria-label={t("transactionsPage.form.closeAria")}
-                  className="rounded-lg p-1.5 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
                 >
                   <X className="h-4 w-4" aria-hidden="true" />
-                </button>
+                </Button>
               </div>
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
                   <label htmlFor="txn-description" className="mb-1 block text-sm font-medium text-foreground">
                     {t("transactionsPage.form.descriptionLabel")}
                   </label>
-                  <input
+                  <Input
                     id="txn-description"
                     type="text"
                     value={formState.description}
                     onChange={(e) => setFormState((f) => ({ ...f, description: e.target.value }))}
-                    className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
                   />
                   {formErrors.description && <p className="mt-1 text-xs text-muted-foreground">{formErrors.description}</p>}
                 </div>
@@ -640,14 +626,13 @@ export default function TransactionsPage() {
                     <label htmlFor="txn-amount" className="mb-1 block text-sm font-medium text-foreground">
                       {t("transactionsPage.form.amountLabel")}
                     </label>
-                    <input
+                    <Input
                       id="txn-amount"
                       type="number"
                       min="0"
                       step="0.01"
                       value={formState.amount}
                       onChange={(e) => setFormState((f) => ({ ...f, amount: e.target.value }))}
-                      className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
                     />
                     {formErrors.amount && <p className="mt-1 text-xs text-muted-foreground">{formErrors.amount}</p>}
                   </div>
@@ -656,30 +641,22 @@ export default function TransactionsPage() {
                   <label htmlFor="txn-date" className="mb-1 block text-sm font-medium text-foreground">
                     {t("transactionsPage.form.dateLabel")}
                   </label>
-                  <input
+                  <Input
                     id="txn-date"
                     type="date"
                     value={formState.date}
                     onChange={(e) => setFormState((f) => ({ ...f, date: e.target.value }))}
-                    className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
                   />
                   {formErrors.date && <p className="mt-1 text-xs text-muted-foreground">{formErrors.date}</p>}
                 </div>
                 <div className="flex items-center justify-end gap-3 pt-2">
-                  <button
-                    type="button"
-                    onClick={closeModal}
-                    className="rounded-lg border border-border px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-muted"
-                  >
+                  <Button type="button" variant="outline" onClick={closeModal}>
                     {t("transactionsPage.form.cancelButton")}
-                  </button>
-                  <button
-                    type="submit"
-                    className="inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
-                  >
+                  </Button>
+                  <Button type="submit" className="gap-2">
                     <Check className="h-4 w-4" aria-hidden="true" />
                     {t("transactionsPage.form.saveButton")}
-                  </button>
+                  </Button>
                 </div>
               </form>
             </motion.div>

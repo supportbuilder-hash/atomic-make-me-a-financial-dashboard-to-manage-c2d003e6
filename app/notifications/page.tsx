@@ -63,7 +63,7 @@ export default function NotificationsPage() {
             return (
               <li
                 key={item.title}
-                className="flex items-start gap-4 rounded-lg border border-border bg-card p-5"
+                className="flex items-start gap-4 rounded-lg border border-border bg-card p-5 transition hover:-translate-y-1 hover:shadow-lg motion-reduce:transition-none"
               >
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary">
                   <Icon className="h-5 w-5" aria-hidden="true" />

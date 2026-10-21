@@ -66,7 +66,10 @@ export default function GoalsPage() {
         />
         <div className="grid gap-6 md:grid-cols-2">
           {goals.map((goal, i) => (
-            <div key={i} className="rounded-lg border border-border bg-card p-6 text-card-foreground shadow-sm">
+            <div
+              key={i}
+              className="rounded-lg border border-border bg-card p-6 text-card-foreground shadow-sm transition hover:-translate-y-1 hover:shadow-lg motion-reduce:transition-none"
+            >
               <div className="flex items-center justify-between gap-4">
                 <h3 className="font-display text-lg font-semibold">{goal.name}</h3>
                 <span className="text-sm font-semibold text-primary">{goal.price}</span>

@@ -4,8 +4,8 @@
     "transactions": "Transacciones",
     "budgets": "Presupuestos",
     "settings": "Configuración",
-    "reports": "Informes",
-    "goals": "Metas",
+    "reports": "Reportes",
+    "goals": "Objetivos",
     "recurring": "Recurrentes",
     "notifications": "Notificaciones"
   },
@@ -13,7 +13,7 @@
     "primary": "Agregar gasto"
   },
   "footer": {
-    "tagline": "Controla cada dólar, domina tus gastos diarios.",
+    "tagline": "Controla cada dólar, domina tu gasto diario.",
     "rights": "Todos los derechos reservados.",
     "columns": {
       "product": "Producto",
@@ -24,8 +24,8 @@
       "transactions": "Transacciones",
       "budgets": "Presupuestos",
       "settings": "Configuración",
-      "reports": "Informes",
-      "goals": "Metas",
+      "reports": "Reportes",
+      "goals": "Objetivos",
       "recurring": "Recurrentes",
       "notifications": "Notificaciones"
     }
@@ -33,27 +33,27 @@
   "budgets": {
     "hero": {
       "eyebrow": "Presupuestos mensuales",
-      "title": "Mantén cada categoría bajo control",
-      "subtitle": "Establece límites de gasto para alquiler, transporte, comida y ahorros, luego ve exactamente adónde va el dinero de este mes."
+      "title": "Mantén cada categoría en orden",
+      "subtitle": "Establece límites de gasto para alquiler, transporte, comida y ahorros, luego ve exactamente a dónde va el dinero de este mes."
     },
     "stats": {
       "totalBudgeted": "Total presupuestado",
       "totalSpent": "Total gastado",
       "remaining": "Restante este mes",
-      "savingsRate": "Meta de ahorro alcanzada"
+      "savingsRate": "Objetivo de ahorro alcanzado"
     },
     "cards": {
       "sectionTitle": "Presupuesto por categoría",
       "sectionSubtitle": "Progreso en vivo de cada categoría contra su límite mensual.",
       "spentOf": "{spent} gastado de {limit}",
       "remainingLabel": "{value} restante",
-      "statusGood": "En camino",
+      "statusGood": "En orden",
       "statusWarning": "Cerca del límite",
       "statusOver": "Presupuesto excedido"
     },
     "chart": {
       "sectionTitle": "Presupuesto vs. real",
-      "sectionSubtitle": "Compara lo que planeaste gastar con lo que realmente salió.",
+      "sectionSubtitle": "Compara lo que planeaste gastar contra lo que realmente salió.",
       "budgetLabel": "Presupuesto",
       "actualLabel": "Real"
     },
@@ -98,13 +98,13 @@
   "settings": {
     "hero": {
       "eyebrow": "Configuración",
-      "title": "Personaliza Finly según cómo realmente gastas",
+      "title": "Personaliza Finly según cómo gastas realmente",
       "subtitle": "Establece tu moneda y formato de fecha, gestiona tus categorías de gastos, define divisiones de presupuesto predeterminadas y exporta tus datos cuando lo necesites."
     },
     "general": {
       "title": "Preferencias generales",
       "subtitle": "Controla cómo se muestran los montos y fechas en tu panel.",
-      "currencyLabel": "Mostrar moneda",
+      "currencyLabel": "Moneda a mostrar",
       "dateFormatLabel": "Formato de fecha",
       "saveButton": "Guardar preferencias",
       "savedMessage": "Preferencias guardadas",
@@ -143,10 +143,10 @@
     },
     "categories": {
       "title": "Categorías de gastos",
-      "subtitle": "Agrega, renombra o elimina las categorías que usas para etiquetar cada transacción.",
-      "emptyState": "Sin categorías aún. Agrega la primera a continuación.",
+      "subtitle": "Añade, renombra o elimina las categorías que usas para etiquetar cada transacción.",
+      "emptyState": "Sin categorías aún. Añade la primera a continuación.",
       "addPlaceholder": "Nombre de nueva categoría",
-      "addButton": "Agregar categoría",
+      "addButton": "Añadir categoría",
       "editAria": "Editar categoría",
       "deleteAria": "Eliminar categoría",
       "saveAria": "Guardar nombre de categoría",
@@ -194,7 +194,7 @@
     },
     "budgetDefaults": {
       "title": "Asignación de presupuesto predeterminada",
-      "subtitle": "Establece el porcentaje del presupuesto mensual que cada categoría debe recibir por defecto cuando creas un nuevo presupuesto.",
+      "subtitle": "Establece el porcentaje del presupuesto mensual que cada categoría debe recibir por defecto cuando crees un nuevo presupuesto.",
       "totalLabel": "Total asignado",
       "totalWarning": "Tus asignaciones aún no suman el 100%. Ajusta los valores para que totalicen exactamente el 100%.",
       "saveButton": "Guardar como predeterminado",
@@ -248,8 +248,8 @@
   "home": {
     "hero": {
       "titleStart": "Sabe exactamente dónde va cada",
-      "titleHighlight": "peso.",
-      "subtitle": "Finly rastrea tu Alquiler, Transporte, Comida y Ahorros en un solo lugar, para que tu gasto diario nunca se sienta como un misterio.",
+      "titleHighlight": "dólar.",
+      "subtitle": "Finly rastrea tu Alquiler, Transporte, Comida y Ahorros en un solo lugar, para que tus gastos diarios nunca sean un misterio.",
       "primaryCta": "Ir a transacciones",
       "secondaryCta": "Ver presupuestos",
       "cardLabel": "Este mes",
@@ -280,7 +280,7 @@
       ]
     },
     "categories": {
-      "eyebrow": "Dónde va",
+      "eyebrow": "A dónde va",
       "title": "Cada gasto, clasificado automáticamente",
       "subtitle": "Alquiler, Transporte, Comida y Ahorros tienen su propio límite para que siempre sepas cuánto espacio te queda.",
       "of": "De",
@@ -305,7 +305,7 @@
     },
     "insights": {
       "eyebrow": "Mantente adelante",
-      "title": "Ve tu gasto antes de que te sorprenda",
+      "title": "Ve tus gastos antes de que te sorprendan",
       "subtitle": "Una vista semanal simple de tus gastos hace fácil detectar una fuga lenta antes de que se convierta en un problema.",
       "chartTitle": "Últimos 6 días",
       "chartDays": [
@@ -334,7 +334,7 @@
     "features": {
       "eyebrow": "Por qué Finly",
       "title": "Diseñado para gastos diarios, no solo compras grandes",
-      "subtitle": "Herramientas pequeñas y simples que mantienen tus finanzas diarias bajo control.",
+      "subtitle": "Herramientas simples que mantienen tus finanzas diarias bajo control.",
       "items": [
         {
           "title": "Automatic categorization",
@@ -355,19 +355,21 @@
       ]
     },
     "cta": {
-      "title": "¿Listo para tomar control de tu gasto diario?",
+      "title": "¿Listo para controlar tus gastos diarios?",
       "subtitle": "Comienza a registrar gastos y establece tu primer presupuesto en menos de un minuto.",
       "primaryCta": "Comienza a rastrear ahora",
-      "secondaryCta": "Ajusta tus presupuestos"
+      "secondaryCta": "Ajusta tus presupuestos",
+      "primary": "Comenzar ahora",
+      "secondary": "Más información"
     }
   },
   "dashboard": {
     "eyebrow": "Resumen diario",
-    "title": "Tu gasto, de un vistazo",
-    "subtitle": "Rastrea dónde va tu dinero este mes y mantente adelante de tus presupuestos.",
+    "title": "Tus gastos, de un vistazo",
+    "subtitle": "Rastrea a dónde va tu dinero este mes y mantente adelante de tus presupuestos.",
     "addExpense": "Agregar gasto",
     "form": {
-      "title": "Registra un nuevo gasto",
+      "title": "Registrar un nuevo gasto",
       "description": "Descripción",
       "descriptionPlaceholder": "p. ej. Café con Sam",
       "amount": "Cantidad (USD)",
@@ -378,7 +380,7 @@
     "stats": {
       "balance": "Saldo neto",
       "spent": "Gastado este mes",
-      "income": "Ingreso mensual",
+      "income": "Ingresos mensuales",
       "saved": "Ahorrado este mes"
     },
     "trend": {
@@ -396,13 +398,13 @@
     },
     "breakdown": {
       "title": "Dónde va",
-      "subtitle": "Proporción de gasto por categoría este mes"
+      "subtitle": "Distribución del gasto por categoría este mes"
     },
     "budgets": {
       "title": "Salud del presupuesto",
       "subtitle": "Cómo cada categoría se compara con su límite mensual",
       "remaining": "Presupuesto restante",
-      "over": "sobre presupuesto"
+      "over": "excedido"
     },
     "transactions": {
       "title": "Transacciones recientes",
@@ -454,7 +456,7 @@
     "pagination": {
       "pageInfo": "Página {page} de {total}",
       "previous": "Página anterior",
-      "next": "Página siguiente"
+      "next": "Siguiente página"
     },
     "bulk": {
       "selectedCount": "{count} seleccionados",
@@ -464,332 +466,344 @@
       "cancelButton": "Cancelar"
     },
     "form": {
-      "addTitle": "Añadir transacción",
+      "addTitle": "Agregar transacción",
       "editTitle": "Editar transacción",
       "descriptionLabel": "Descripción",
       "categoryLabel": "Categoría",
-      "amountLabel": "Cantidad (USD)",
+      "amountLabel": "Monto (USD)",
       "dateLabel": "Fecha",
       "saveButton": "Guardar transacción",
       "cancelButton": "Cancelar",
       "closeAria": "Cerrar diálogo",
-      "errorDescription": "Por favor, ingresa una descripción.",
-      "errorAmount": "Ingresa una cantidad mayor que cero.",
-      "errorDate": "Por favor, selecciona una fecha."
+      "errorDescription": "Por favor ingresa una descripción.",
+      "errorAmount": "Ingresa un monto mayor a cero.",
+      "errorDate": "Por favor selecciona una fecha."
     },
     "deleteConfirm": "¿Eliminar esta transacción? Esta acción no se puede deshacer."
   },
   "reports": {
     "hero": {
-      "eyebrow": "Informes financieros",
-      "title": "Entiende tu gasto mes a mes y año a año",
-      "subtitle": "Genera informes detallados de tus finanzas, compara periodos anteriores y descarga resúmenes listos para guardar o compartir.",
-      "primaryCta": "Descargar informe mensual",
-      "secondaryCta": "Ver presupuestos"
+      "eyebrow": "Reportes financieros",
+      "title": "Ve la historia completa de tus gastos",
+      "subtitle": "Desglose detallado mensual y anual, resúmenes descargables y comparaciones históricas para que siempre sepas dónde fue tu dinero."
     },
     "stats": {
       "title": "Este año de un vistazo",
-      "subtitle": "Un resumen rápido de cómo se compara tu gasto con el año anterior.",
       "items": [
         {
-          "value": "$38,940",
-          "label": "Gasto total este año"
+          "value": "$38,420",
+          "label": "Total spent this year"
         },
         {
-          "value": "-6.2%",
-          "label": "Vs. año anterior"
-        },
-        {
-          "value": "$3,245",
-          "label": "Promedio mensual"
+          "value": "$6,200",
+          "label": "Total saved this year"
         },
         {
           "value": "12",
-          "label": "Informes generados"
+          "label": "Monthly reports generated"
+        },
+        {
+          "value": "-8%",
+          "label": "Spending vs. last year"
         }
       ]
     },
     "monthly": {
       "eyebrow": "Desglose mensual",
-      "title": "Cada mes, desglosado por categoría",
-      "subtitle": "Revisa exactamente cuánto gastaste en alquiler, transporte, comida y ahorros mes a mes, y descarga el resumen cuando lo necesites.",
-      "downloadLabel": "Descargar PDF",
+      "title": "Compara mes a mes",
+      "subtitle": "Observa cómo cada categoría varía a lo largo del año e identifica dónde aumentaron los gastos.",
       "items": [
         {
-          "title": "Junio 2024",
-          "description": "Total gastado $3,210. Ligero aumento en comida compensado por menor transporte."
+          "title": "June 2024",
+          "description": "$3,180 spent across Rent, Transport, Food and Saving — 4% below May."
         },
         {
-          "title": "Mayo 2024",
-          "description": "Total gastado $3,080. Mes estable con ahorro constante del 22%."
+          "title": "May 2024",
+          "description": "$3,310 spent, driven by a higher Transport bill from a car repair."
         },
         {
-          "title": "Abril 2024",
-          "description": "Total gastado $3,410. Gasto más alto por renovación del seguro de alquiler."
-        },
-        {
-          "title": "Marzo 2024",
-          "description": "Total gastado $2,950. Mejor mes del trimestre en control de gastos."
+          "title": "April 2024",
+          "description": "$3,050 spent, your lowest month this year thanks to a Food budget win."
         }
       ]
     },
-    "comparison": {
-      "eyebrow": "Comparativa histórica",
-      "title": "Mira cómo ha evolucionado tu gasto",
-      "subtitle": "Compara tendencias trimestrales y anuales para identificar patrones antes de que se conviertan en hábitos costosos.",
+    "downloads": {
+      "eyebrow": "Exportar",
+      "title": "Descarga tus resúmenes",
+      "subtitle": "Obtén un PDF o CSV de cualquier período para tus registros o tu contador.",
       "items": [
         {
-          "title": "Año contra año",
-          "description": "Tu gasto total bajó un 6.2% comparado con el mismo periodo del año pasado, impulsado principalmente por menores costos de transporte."
+          "name": "Yearly Summary 2024",
+          "price": "PDF",
+          "description": "Full breakdown of income, spend and savings for 2024."
         },
         {
-          "title": "Trimestre contra trimestre",
-          "description": "El segundo trimestre mostró un gasto 4% mayor que el primero, principalmente por gastos estacionales en comida."
+          "name": "Q2 2024 Report",
+          "price": "CSV",
+          "description": "Raw transaction export for April–June 2024."
         },
         {
-          "title": "Categoría más variable",
-          "description": "Transporte es la categoría con mayor fluctuación mensual, con una diferencia de hasta $85 entre meses."
+          "name": "June 2024 Statement",
+          "price": "PDF",
+          "description": "Category-by-category statement for the past month."
         }
       ]
     },
     "cta": {
-      "title": "Obtén el panorama completo de tus finanzas",
-      "subtitle": "Descarga tu informe anual completo con desgloses por categoría, tendencias y comparativas históricas.",
-      "primaryCta": "Descargar informe anual",
-      "secondaryCta": "Ir al panel"
+      "title": "¿Listo para revisar tu año?",
+      "subtitle": "Genera un reporte nuevo en cualquier momento — solo toma unos segundos.",
+      "primary": "Generar reporte",
+      "secondary": "Ver transacciones"
     }
   },
   "goals": {
     "hero": {
       "eyebrow": "Metas de ahorro",
-      "title": "Convierte tus ahorros en metas con plazo",
-      "subtitle": "Define cuánto quieres ahorrar, para cuándo, y sigue tu progreso con barras claras que muestran exactamente qué tan cerca estás.",
-      "primaryCta": "Crear una meta",
-      "secondaryCta": "Ver presupuestos"
+      "title": "Dale un destino a cada dólar",
+      "subtitle": "Establece montos objetivo y fechas límite, luego observa cómo se llenan tus barras de progreso mientras ahorras."
     },
     "stats": {
-      "title": "Tu progreso de ahorro",
-      "subtitle": "Cuánto has ahorrado en todas tus metas activas.",
+      "title": "Resumen de tus metas",
       "items": [
         {
-          "value": "$8,420",
-          "label": "Total ahorrado"
-        },
-        {
           "value": "4",
-          "label": "Metas activas"
+          "label": "Active goals"
         },
         {
-          "value": "68%",
-          "label": "Progreso promedio"
+          "value": "$9,450",
+          "label": "Total saved toward goals"
         },
         {
-          "value": "$620",
-          "label": "Ahorrado este mes"
+          "value": "62%",
+          "label": "Average progress"
+        },
+        {
+          "value": "2",
+          "label": "Goals due this year"
         }
       ]
     },
-    "active": {
-      "eyebrow": "Metas activas",
-      "title": "Sigue el progreso de cada meta",
-      "subtitle": "Cada meta muestra el monto objetivo, lo ahorrado hasta ahora y la fecha límite para alcanzarla.",
+    "list": {
+      "eyebrow": "En progreso",
+      "title": "Sigue cada meta",
+      "subtitle": "Ve exactamente qué tan cerca estás de cada objetivo.",
       "items": [
         {
-          "title": "Fondo de emergencia",
-          "description": "Objetivo $6,000. Ahorrado $4,200. Fecha límite: diciembre 2024."
+          "name": "Emergency Fund",
+          "price": "$6,000 / $10,000",
+          "description": "Target date: December 2024 — 60% funded."
         },
         {
-          "title": "Vacaciones de verano",
-          "description": "Objetivo $2,000. Ahorrado $1,350. Fecha límite: julio 2024."
+          "name": "New Car Down Payment",
+          "price": "$2,400 / $5,000",
+          "description": "Target date: March 2025 — 48% funded."
         },
         {
-          "title": "Enganche de auto nuevo",
-          "description": "Objetivo $5,000. Ahorrado $2,870. Fecha límite: marzo 2025."
+          "name": "Vacation to Portugal",
+          "price": "$1,050 / $2,000",
+          "description": "Target date: August 2024 — 52% funded."
+        },
+        {
+          "name": "Home Office Upgrade",
+          "price": "$0 / $800",
+          "description": "Target date: October 2024 — just getting started."
         }
       ]
     },
     "tips": {
-      "eyebrow": "Cómo alcanzarlas más rápido",
-      "title": "Pequeños ajustes que aceleran tus metas",
-      "subtitle": "Estrategias simples para llegar a tus metas de ahorro antes de la fecha límite, sin sacrificar lo que disfrutas.",
+      "eyebrow": "Mantente motivado",
+      "title": "Consejos para alcanzar tus objetivos más rápido",
+      "subtitle": "Pequeños hábitos que se suman con el tiempo.",
       "items": [
         {
-          "title": "Automatiza tus transferencias",
-          "description": "Programa un traspaso automático a cada meta justo después de recibir tu ingreso."
+          "title": "Automate transfers",
+          "description": "Move money to each goal right after payday so saving happens before you spend."
         },
         {
-          "title": "Redondea tus gastos",
-          "description": "Redondea cada compra al dólar más cercano y envía la diferencia a tu meta."
+          "title": "Round up purchases",
+          "description": "Send the spare change from every transaction straight into your goals."
         },
         {
-          "title": "Revisa el progreso cada semana",
-          "description": "Un vistazo semanal a tus barras de progreso mantiene la motivación y detecta desvíos a tiempo."
+          "title": "Review monthly",
+          "description": "Check progress at the start of each month and adjust contributions as needed."
         }
       ]
     },
     "cta": {
-      "title": "¿Listo para empezar una nueva meta?",
-      "subtitle": "Define un monto, una fecha límite y deja que Finly te ayude a llegar ahí.",
-      "primaryCta": "Crear meta de ahorro",
-      "secondaryCta": "Ver transacciones"
+      "title": "¿Listo para establecer un nuevo objetivo?",
+      "subtitle": "Define una meta, elige una fecha límite y comienza a hacer seguimiento hoy.",
+      "primary": "Agregar un objetivo",
+      "secondary": "Ver presupuestos"
     }
   },
   "recurring": {
     "hero": {
-      "eyebrow": "Pagos recurrentes",
-      "title": "Nunca te pierdas una factura o suscripción",
-      "subtitle": "Gestiona alquiler, servicios y suscripciones en un solo lugar, con recordatorios antes de cada fecha de vencimiento.",
-      "primaryCta": "Agregar gasto recurrente",
-      "secondaryCta": "Ver presupuestos"
+      "eyebrow": "Gastos recurrentes",
+      "title": "Nunca vuelvas a perder un pago",
+      "subtitle": "Gestiona alquiler, servicios e suscripciones en un solo lugar, con recordatorios antes de cada pago."
     },
     "stats": {
-      "title": "Tus recurrentes de un vistazo",
-      "subtitle": "Cuánto sale automáticamente de tu cuenta cada mes.",
+      "title": "Resumen de recurrentes",
       "items": [
         {
-          "value": "$2,185",
-          "label": "Total mensual recurrente"
+          "value": "$2,340",
+          "label": "Total due monthly"
         },
         {
           "value": "7",
-          "label": "Suscripciones activas"
+          "label": "Active subscriptions"
         },
         {
           "value": "3",
-          "label": "Próximas esta semana"
+          "label": "Due in the next 7 days"
         },
         {
-          "value": "$45",
-          "label": "Gasto recurrente más pequeño"
+          "value": "$180",
+          "label": "Potential savings found"
         }
       ]
     },
-    "upcoming": {
-      "eyebrow": "Próximos pagos",
-      "title": "Lo que vence pronto",
-      "subtitle": "Mantente al tanto de tus pagos más cercanos para evitar cargos por retraso o sorpresas en tu saldo.",
+    "bills": {
+      "eyebrow": "Próximos",
+      "title": "Tus pagos recurrentes",
+      "subtitle": "Cada costo fijo, su frecuencia y cuándo vence a continuación.",
       "items": [
         {
-          "title": "Alquiler mensual",
-          "description": "$1,450 vence el día 1. Pago automático programado desde tu cuenta principal."
+          "name": "Apartment Rent",
+          "price": "$1,450/mo",
+          "description": "Due on the 1st of every month — autopay enabled."
         },
         {
-          "title": "Electricidad y agua",
-          "description": "$140 vence el día 5. Monto variable según consumo del mes anterior."
+          "name": "Electricity & Gas",
+          "price": "$95/mo",
+          "description": "Due on the 8th — varies with usage."
         },
         {
-          "title": "Plan de streaming",
-          "description": "$15.99 vence el día 12. Renovación automática cada mes."
+          "name": "Internet",
+          "price": "$60/mo",
+          "description": "Due on the 12th — fixed rate contract."
         },
         {
-          "title": "Gimnasio",
-          "description": "$39 vence el día 18. Membresía mensual sin compromiso de permanencia."
+          "name": "Streaming Bundle",
+          "price": "$24/mo",
+          "description": "Due on the 15th — shared with household."
+        },
+        {
+          "name": "Gym Membership",
+          "price": "$45/mo",
+          "description": "Due on the 20th — annual contract."
+        },
+        {
+          "name": "Phone Plan",
+          "price": "$70/mo",
+          "description": "Due on the 25th — includes device payment."
         }
       ]
     },
-    "manage": {
-      "eyebrow": "Gestiona tus recurrentes",
-      "title": "Edita, pausa o cancela en segundos",
-      "subtitle": "Mantén el control total sobre cada compromiso recurrente, desde el alquiler hasta la suscripción más pequeña.",
+    "reminders": {
+      "eyebrow": "Recordatorios",
+      "title": "Adelántate a cada pago",
+      "subtitle": "Cómo Finly te evita perder una fecha de vencimiento.",
       "items": [
         {
-          "title": "Edita montos y fechas",
-          "description": "Actualiza el costo o la fecha de cobro de cualquier gasto recurrente cuando cambie."
+          "title": "Smart notifications",
+          "description": "Get alerted three days before any bill is due."
         },
         {
-          "title": "Pausa sin perder el historial",
-          "description": "Pausa temporalmente una suscripción sin eliminar su historial de pagos pasados."
+          "title": "Autopay tracking",
+          "description": "See at a glance which bills are on autopay and which need manual action."
         },
         {
-          "title": "Recibe recordatorios anticipados",
-          "description": "Te avisamos unos días antes de cada vencimiento para que nunca te tome por sorpresa."
+          "title": "Price change alerts",
+          "description": "We flag it the moment a subscription's price goes up."
         }
       ]
     },
     "cta": {
-      "title": "Pon tus pagos recurrentes en piloto automático",
-      "subtitle": "Agrega tus facturas y suscripciones una vez y deja que Finly te avise antes de cada vencimiento.",
-      "primaryCta": "Agregar recurrente",
-      "secondaryCta": "Ver notificaciones"
+      "title": "Agregar un nuevo pago recurrente",
+      "subtitle": "Mantén tus costos fijos organizados y nunca te sorprendas.",
+      "primary": "Agregar gasto recurrente",
+      "secondary": "Ver presupuestos"
     }
   },
   "notifications": {
     "hero": {
-      "eyebrow": "Alertas y notificaciones",
-      "title": "Mantente al tanto de cada alerta importante",
-      "subtitle": "Desde excesos de presupuesto hasta facturas próximas y metas de ahorro alcanzadas, todas tus alertas en un solo lugar.",
-      "primaryCta": "Configurar alertas",
-      "secondaryCta": "Ver presupuestos"
+      "eyebrow": "Notificaciones",
+      "title": "Mantente al tanto de cada alerta",
+      "subtitle": "Excesos de presupuesto, pagos próximos e hitos de ahorro — todo en un solo lugar."
     },
     "stats": {
-      "title": "Actividad reciente",
-      "subtitle": "Un resumen de las alertas generadas en los últimos 30 días.",
+      "title": "Resumen de alertas",
       "items": [
         {
-          "value": "18",
-          "label": "Alertas este mes"
-        },
-        {
           "value": "3",
-          "label": "Excesos de presupuesto"
+          "label": "Unread alerts"
         },
         {
-          "value": "5",
-          "label": "Facturas próximas"
+          "value": "1",
+          "label": "Budget overrun"
         },
         {
           "value": "2",
-          "label": "Metas alcanzadas"
+          "label": "Bills due soon"
+        },
+        {
+          "value": "1",
+          "label": "Milestone reached"
         }
       ]
     },
     "alerts": {
-      "eyebrow": "Alertas recientes",
-      "title": "Lo que necesita tu atención",
-      "subtitle": "Las alertas más recientes de tus categorías, facturas y metas de ahorro, ordenadas por fecha.",
+      "eyebrow": "Recientes",
+      "title": "Tus alertas más recientes",
+      "subtitle": "Todo lo que necesita tu atención ahora mismo.",
       "items": [
         {
-          "title": "Presupuesto de comida al 93%",
-          "description": "Has gastado $465 de tu límite de $500 este mes. Quedan $35 disponibles."
+          "title": "Food budget exceeded",
+          "description": "You've spent $465 of your $500 Food budget this month — 93% used."
         },
         {
-          "title": "Alquiler vence en 3 días",
-          "description": "Tu pago de $1,450 está programado para el día 1. Verifica que tu saldo sea suficiente."
+          "title": "Rent due in 3 days",
+          "description": "Your $1,450 rent payment is due on the 1st — autopay is enabled."
         },
         {
-          "title": "Meta de vacaciones al 67%",
-          "description": "Has ahorrado $1,350 de tu meta de $2,000 para vacaciones de verano."
+          "title": "Internet bill due in 5 days",
+          "description": "Your $60 internet bill is due on the 12th."
         },
         {
-          "title": "Transporte superó el límite",
-          "description": "Gastaste $310 de un límite de $300 este mes. Considera ajustar tu presupuesto."
+          "title": "Savings milestone reached",
+          "description": "You just crossed $9,000 saved across all your goals. Great work!"
+        },
+        {
+          "title": "Transport budget on track",
+          "description": "You've used 70% of your Transport budget with 10 days left in the month."
         }
       ]
     },
     "preferences": {
-      "eyebrow": "Preferencias de alertas",
-      "title": "Elige qué te queremos avisar",
-      "subtitle": "Personaliza qué tipo de eventos generan una notificación para que solo recibas lo que realmente importa.",
+      "eyebrow": "Preferencias",
+      "title": "Elige sobre qué recibir notificaciones",
+      "subtitle": "Ajusta qué alertas te llegan y cómo.",
       "items": [
         {
-          "title": "Excesos de presupuesto",
-          "description": "Recibe un aviso en cuanto una categoría supere el 80% de su límite mensual."
+          "title": "Budget alerts",
+          "description": "Get notified when a category crosses 80% or 100% of its limit."
         },
         {
-          "title": "Recordatorios de facturas",
-          "description": "Te avisamos 3 días antes de que venza cualquier pago recurrente."
+          "title": "Bill reminders",
+          "description": "Receive a reminder three days before every recurring payment."
         },
         {
-          "title": "Hitos de ahorro",
-          "description": "Celebra cada vez que alcances el 25%, 50%, 75% o 100% de una meta."
+          "title": "Milestone celebrations",
+          "description": "Be told the moment you hit a new savings milestone."
         }
       ]
     },
     "cta": {
-      "title": "No te pierdas ninguna alerta importante",
-      "subtitle": "Ajusta tus preferencias de notificación y mantente siempre un paso adelante de tus finanzas.",
-      "primaryCta": "Ajustar notificaciones",
-      "secondaryCta": "Ir al panel"
+      "title": "Personaliza tus alertas",
+      "subtitle": "Ve a configuración para personalizar exactamente qué deseas saber.",
+      "primary": "Ir a configuración",
+      "secondary": "Ver objetivos"
     }
   }
 }

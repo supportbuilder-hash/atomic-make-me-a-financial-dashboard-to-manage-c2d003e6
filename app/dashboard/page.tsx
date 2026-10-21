@@ -128,16 +128,16 @@ export default function DashboardPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-background">
-      <div className="mx-auto max-w-7xl space-y-12 px-4 py-12 sm:px-6 md:py-16 lg:px-8">
-        <Reveal>
-          <section className="relative overflow-hidden rounded-2xl bg-mesh p-8 md:p-12">
+    <main className="bg-background text-foreground">
+      <Reveal>
+        <section className="relative overflow-hidden bg-mesh py-16 md:py-20">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
               <div className="max-w-xl">
-                <span className="inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-medium uppercase tracking-wide text-primary">
+                <span className="text-sm font-medium text-muted-foreground">
                   {t("dashboard.eyebrow")}
                 </span>
-                <h1 className="mt-4 text-balance font-display text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+                <h1 className="mt-4 text-balance font-display text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
                   {t("dashboard.title")}
                 </h1>
                 <p className="mt-3 text-pretty leading-relaxed text-muted-foreground">
@@ -147,7 +147,7 @@ export default function DashboardPage() {
               <button
                 type="button"
                 onClick={() => setShowForm((prev) => !prev)}
-                className="inline-flex shrink-0 items-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-glow transition hover:-translate-y-0.5 hover:shadow-lg motion-reduce:transition-none"
+                className="inline-flex shrink-0 items-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg motion-reduce:transition-none"
               >
                 {showForm ? <X className="h-4 w-4" aria-hidden="true" /> : <Plus className="h-4 w-4" aria-hidden="true" />}
                 {t("dashboard.addExpense")}
@@ -157,9 +157,9 @@ export default function DashboardPage() {
             {showForm && (
               <form
                 onSubmit={handleSubmit}
-                className="glass-strong mt-8 grid grid-cols-1 gap-4 rounded-xl p-6 sm:grid-cols-2 lg:grid-cols-4"
+                className="mt-8 grid grid-cols-1 gap-4 rounded-lg border border-border bg-card p-6 text-card-foreground shadow-sm sm:grid-cols-2 lg:grid-cols-4"
               >
-                <h2 className="col-span-full text-sm font-semibold text-foreground">
+                <h2 className="col-span-full text-sm font-display font-semibold text-foreground">
                   {t("dashboard.form.title")}
                 </h2>
                 <div className="flex flex-col gap-1.5">
@@ -172,7 +172,7 @@ export default function DashboardPage() {
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
                     placeholder={t("dashboard.form.descriptionPlaceholder")}
-                    className="rounded-lg border border-border bg-card px-3 py-2 text-sm text-card-foreground outline-none ring-ring transition focus-visible:ring-2"
+                    className="rounded-md border border-border bg-background px-3 py-2 text-sm text-foreground outline-none ring-ring transition focus-visible:ring-2"
                   />
                 </div>
                 <div className="flex flex-col gap-1.5">
@@ -187,7 +187,7 @@ export default function DashboardPage() {
                     value={amount}
                     onChange={(e) => setAmount(e.target.value)}
                     placeholder="0.00"
-                    className="rounded-lg border border-border bg-card px-3 py-2 text-sm text-card-foreground outline-none ring-ring transition focus-visible:ring-2"
+                    className="rounded-md border border-border bg-background px-3 py-2 text-sm text-foreground outline-none ring-ring transition focus-visible:ring-2"
                   />
                 </div>
                 <div className="flex flex-col gap-1.5">
@@ -198,7 +198,7 @@ export default function DashboardPage() {
                     id="expense-category"
                     value={category}
                     onChange={(e) => setCategory(e.target.value as CategoryId)}
-                    className="rounded-lg border border-border bg-card px-3 py-2 text-sm text-card-foreground outline-none ring-ring transition focus-visible:ring-2"
+                    className="rounded-md border border-border bg-background px-3 py-2 text-sm text-foreground outline-none ring-ring transition focus-visible:ring-2"
                   >
                     {CATEGORY_ORDER.map((id) => (
                       <option key={id} value={id}>
@@ -210,172 +210,188 @@ export default function DashboardPage() {
                 <div className="flex items-end gap-2">
                   <button
                     type="submit"
-                    className="inline-flex flex-1 items-center justify-center rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition hover:-translate-y-0.5 motion-reduce:transition-none"
+                    className="inline-flex flex-1 items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-sm transition hover:-translate-y-0.5 motion-reduce:transition-none"
                   >
                     {t("dashboard.form.submit")}
                   </button>
                   <button
                     type="button"
                     onClick={() => setShowForm(false)}
-                    className="inline-flex items-center justify-center rounded-lg border border-border px-4 py-2 text-sm font-medium text-foreground transition hover:bg-muted"
+                    className="inline-flex items-center justify-center rounded-md border border-border px-4 py-2 text-sm font-medium text-foreground transition hover:bg-muted"
                   >
                     {t("dashboard.form.cancel")}
                   </button>
                 </div>
               </form>
             )}
-          </section>
-        </Reveal>
+          </div>
+        </section>
+      </Reveal>
 
-        <Reveal delay={0.05}>
-          <section className="grid grid-cols-2 gap-4 lg:grid-cols-4">
-            {stats.map((stat) => (
-              <div
-                key={stat.label}
-                className="surface-elevated rounded-2xl border border-border bg-card p-5 transition hover:-translate-y-1 motion-reduce:transition-none"
-              >
-                <div className="flex items-center justify-between">
-                  <span className="text-sm font-medium text-muted-foreground">{stat.label}</span>
-                  <stat.icon className="h-5 w-5 text-primary" aria-hidden="true" />
+      <Reveal>
+        <section className="py-16 md:py-20">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+              {stats.map((stat) => (
+                <div
+                  key={stat.label}
+                  className="rounded-lg border border-border bg-card p-6 text-card-foreground shadow-sm transition hover:-translate-y-1 motion-reduce:transition-none"
+                >
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm font-medium text-muted-foreground">{stat.label}</span>
+                    <stat.icon className="h-5 w-5 text-primary" aria-hidden="true" />
+                  </div>
+                  <div className="mt-3 text-2xl font-display font-semibold tracking-tight text-foreground">{stat.value}</div>
                 </div>
-                <div className="mt-3 text-2xl font-bold tracking-tight text-foreground">{stat.value}</div>
-              </div>
-            ))}
-          </section>
-        </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+      </Reveal>
 
-        <Reveal delay={0.1}>
-          <section className="grid grid-cols-1 gap-6 lg:grid-cols-5">
-            <div className="rounded-2xl border border-border bg-card p-6 lg:col-span-3">
-              <h2 className="text-lg font-semibold text-foreground">{t("dashboard.trend.title")}</h2>
-              <p className="mt-1 text-sm text-muted-foreground">{t("dashboard.trend.subtitle")}</p>
-              <div className="mt-4 flex h-64 items-end gap-2">
-                {trendData.map((point) => {
-                  const maxSpend = Math.max(...trendData.map((p) => p.spend), 1);
-                  const heightPercent = Math.max(6, Math.round((point.spend / maxSpend) * 100));
+      <Reveal>
+        <section className="py-16 md:py-20">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 gap-6 lg:grid-cols-5">
+              <div className="rounded-lg border border-border bg-card p-6 text-card-foreground shadow-sm lg:col-span-3">
+                <h2 className="text-2xl font-display font-semibold text-foreground">{t("dashboard.trend.title")}</h2>
+                <p className="mt-1 text-sm font-medium text-muted-foreground">{t("dashboard.trend.subtitle")}</p>
+                <div className="mt-4 flex h-64 items-end gap-2">
+                  {trendData.map((point) => {
+                    const maxSpend = Math.max(...trendData.map((p) => p.spend), 1);
+                    const heightPercent = Math.max(6, Math.round((point.spend / maxSpend) * 100));
+                    return (
+                      <div key={point.day} className="flex flex-1 flex-col items-center gap-2">
+                        <div className="flex h-48 w-full items-end">
+                          <div
+                            className="w-full rounded-t-md bg-primary/80 transition hover:bg-primary"
+                            style={{ height: `${heightPercent}%` }}
+                            title={formatCurrency(point.spend)}
+                          />
+                        </div>
+                        <span className="text-xs font-medium text-muted-foreground">{point.day}</span>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+
+              <div className="rounded-lg border border-border bg-card p-6 text-card-foreground shadow-sm lg:col-span-2">
+                <h2 className="text-2xl font-display font-semibold text-foreground">{t("dashboard.breakdown.title")}</h2>
+                <p className="mt-1 text-sm font-medium text-muted-foreground">{t("dashboard.breakdown.subtitle")}</p>
+                <div className="mt-4 flex h-3 w-full overflow-hidden rounded-full bg-muted">
+                  {pieData.map((entry) => {
+                    const widthPercent = totalSpent > 0 ? Math.max(2, (entry.value / totalSpent) * 100) : 0;
+                    return (
+                      <div
+                        key={entry.id}
+                        style={{ width: `${widthPercent}%`, backgroundColor: entry.color }}
+                        title={`${entry.label}: ${formatCurrency(entry.value)}`}
+                      />
+                    );
+                  })}
+                </div>
+                <ul className="mt-2 space-y-2">
+                  {pieData.map((entry) => (
+                    <li key={entry.id} className="flex items-center justify-between text-sm">
+                      <span className="flex items-center gap-2 text-foreground">
+                        <span
+                          className="h-2.5 w-2.5 rounded-full"
+                          style={{ backgroundColor: entry.color }}
+                          aria-hidden="true"
+                        />
+                        {entry.label}
+                      </span>
+                      <span className="font-medium text-muted-foreground">{formatCurrency(entry.value)}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+      </Reveal>
+
+      <Reveal>
+        <section className="py-16 md:py-20">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="rounded-lg border border-border bg-card p-6 text-card-foreground shadow-sm">
+              <h2 className="text-2xl font-display font-semibold text-foreground">{t("dashboard.budgets.title")}</h2>
+              <p className="mt-1 text-sm font-medium text-muted-foreground">{t("dashboard.budgets.subtitle")}</p>
+              <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2">
+                {CATEGORY_ORDER.map((id) => {
+                  const Icon = CATEGORY_ICONS[id];
+                  const spent = spentByCategory[id] ?? 0;
+                  const limit = CATEGORY_LIMITS[id];
+                  const percent = Math.min(100, Math.round((spent / limit) * 100));
+                  const isOver = spent > limit;
                   return (
-                    <div key={point.day} className="flex flex-1 flex-col items-center gap-2">
-                      <div className="flex h-48 w-full items-end">
+                    <div key={id} className="rounded-lg border border-border p-4">
+                      <div className="flex items-center justify-between">
+                        <span className="flex items-center gap-2 text-sm font-medium text-foreground">
+                          <Icon className="h-4 w-4 text-primary" aria-hidden="true" />
+                          {labelFor(id)}
+                        </span>
+                        <span className="text-sm text-muted-foreground">
+                          {formatCurrency(spent)} / {formatCurrency(limit)}
+                        </span>
+                      </div>
+                      <div className="mt-3 h-2 w-full overflow-hidden rounded-full bg-muted">
                         <div
-                          className="w-full rounded-t-md bg-primary/80 transition hover:bg-primary"
-                          style={{ height: `${heightPercent}%` }}
-                          title={formatCurrency(point.spend)}
+                          className={isOver ? "h-full rounded-full bg-accent" : "h-full rounded-full bg-primary"}
+                          style={{ width: `${percent}%` }}
                         />
                       </div>
-                      <span className="text-xs font-medium text-muted-foreground">{point.day}</span>
+                      <p className="mt-2 text-xs font-medium text-muted-foreground">
+                        {isOver
+                          ? `${formatCurrency(spent - limit)} ${t("dashboard.budgets.over")}`
+                          : `${formatCurrency(limit - spent)} ${t("dashboard.budgets.remaining")}`}
+                      </p>
                     </div>
                   );
                 })}
               </div>
             </div>
+          </div>
+        </section>
+      </Reveal>
 
-            <div className="rounded-2xl border border-border bg-card p-6 lg:col-span-2">
-              <h2 className="text-lg font-semibold text-foreground">{t("dashboard.breakdown.title")}</h2>
-              <p className="mt-1 text-sm text-muted-foreground">{t("dashboard.breakdown.subtitle")}</p>
-              <div className="mt-4 flex h-3 w-full overflow-hidden rounded-full bg-muted">
-                {pieData.map((entry) => {
-                  const widthPercent = totalSpent > 0 ? Math.max(2, (entry.value / totalSpent) * 100) : 0;
-                  return (
-                    <div
-                      key={entry.id}
-                      style={{ width: `${widthPercent}%`, backgroundColor: entry.color }}
-                      title={`${entry.label}: ${formatCurrency(entry.value)}`}
-                    />
-                  );
-                })}
-              </div>
-              <ul className="mt-2 space-y-2">
-                {pieData.map((entry) => (
-                  <li key={entry.id} className="flex items-center justify-between text-sm">
-                    <span className="flex items-center gap-2 text-foreground">
-                      <span
-                        className="h-2.5 w-2.5 rounded-full"
-                        style={{ backgroundColor: entry.color }}
-                        aria-hidden="true"
-                      />
-                      {entry.label}
-                    </span>
-                    <span className="font-medium text-muted-foreground">{formatCurrency(entry.value)}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </section>
-        </Reveal>
-
-        <Reveal delay={0.15}>
-          <section className="rounded-2xl border border-border bg-card p-6">
-            <h2 className="text-lg font-semibold text-foreground">{t("dashboard.budgets.title")}</h2>
-            <p className="mt-1 text-sm text-muted-foreground">{t("dashboard.budgets.subtitle")}</p>
-            <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2">
-              {CATEGORY_ORDER.map((id) => {
-                const Icon = CATEGORY_ICONS[id];
-                const spent = spentByCategory[id] ?? 0;
-                const limit = CATEGORY_LIMITS[id];
-                const percent = Math.min(100, Math.round((spent / limit) * 100));
-                const isOver = spent > limit;
-                return (
-                  <div key={id} className="rounded-xl border border-border p-4">
-                    <div className="flex items-center justify-between">
-                      <span className="flex items-center gap-2 text-sm font-medium text-foreground">
-                        <Icon className="h-4 w-4 text-primary" aria-hidden="true" />
-                        {labelFor(id)}
-                      </span>
-                      <span className="text-sm text-muted-foreground">
-                        {formatCurrency(spent)} / {formatCurrency(limit)}
-                      </span>
-                    </div>
-                    <div className="mt-3 h-2 w-full overflow-hidden rounded-full bg-muted">
-                      <div
-                        className={isOver ? "h-full rounded-full bg-accent" : "h-full rounded-full bg-primary"}
-                        style={{ width: `${percent}%` }}
-                      />
-                    </div>
-                    <p className="mt-2 text-xs font-medium text-muted-foreground">
-                      {isOver
-                        ? `${formatCurrency(spent - limit)} ${t("dashboard.budgets.over")}`
-                        : `${formatCurrency(limit - spent)} ${t("dashboard.budgets.remaining")}`}
-                    </p>
-                  </div>
-                );
-              })}
-            </div>
-          </section>
-        </Reveal>
-
-        <Reveal delay={0.2}>
-          <section className="rounded-2xl border border-border bg-card p-6">
-            <h2 className="text-lg font-semibold text-foreground">{t("dashboard.transactions.title")}</h2>
-            <p className="mt-1 text-sm text-muted-foreground">{t("dashboard.transactions.subtitle")}</p>
-            {transactions.length === 0 ? (
-              <p className="mt-6 text-sm text-muted-foreground">{t("dashboard.transactions.empty")}</p>
-            ) : (
-              <div className="mt-4 overflow-x-auto">
-                <table className="w-full text-sm">
-                  <thead className="border-b border-border text-left text-muted-foreground">
-                    <tr>
-                      <th className="p-3 font-medium">{t("dashboard.transactions.columns.description")}</th>
-                      <th className="p-3 font-medium">{t("dashboard.transactions.columns.category")}</th>
-                      <th className="p-3 font-medium">{t("dashboard.transactions.columns.date")}</th>
-                      <th className="p-3 text-right font-medium">{t("dashboard.transactions.columns.amount")}</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-border">
-                    {transactions.map((tx) => (
-                      <tr key={tx.id}>
-                        <td className="p-3 text-foreground">{tx.description}</td>
-                        <td className="p-3 text-muted-foreground">{labelFor(tx.categoryId)}</td>
-                        <td className="p-3 text-muted-foreground">{tx.date}</td>
-                        <td className="p-3 text-right font-medium text-foreground">{formatCurrency(tx.amount)}</td>
+      <Reveal>
+        <section className="py-16 md:py-20">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="rounded-lg border border-border bg-card p-6 text-card-foreground shadow-sm">
+              <h2 className="text-2xl font-display font-semibold text-foreground">{t("dashboard.transactions.title")}</h2>
+              <p className="mt-1 text-sm font-medium text-muted-foreground">{t("dashboard.transactions.subtitle")}</p>
+              {transactions.length === 0 ? (
+                <p className="mt-6 text-sm text-muted-foreground">{t("dashboard.transactions.empty")}</p>
+              ) : (
+                <div className="mt-4 overflow-x-auto">
+                  <table className="w-full text-sm">
+                    <thead className="border-b border-border text-left text-muted-foreground">
+                      <tr>
+                        <th className="p-3 font-medium">{t("dashboard.transactions.columns.description")}</th>
+                        <th className="p-3 font-medium">{t("dashboard.transactions.columns.category")}</th>
+                        <th className="p-3 font-medium">{t("dashboard.transactions.columns.date")}</th>
+                        <th className="p-3 text-right font-medium">{t("dashboard.transactions.columns.amount")}</th>
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            )}
-          </section>
-        </Reveal>
-      </div>
+                    </thead>
+                    <tbody className="divide-y divide-border">
+                      {transactions.map((tx) => (
+                        <tr key={tx.id}>
+                          <td className="p-3 text-foreground">{tx.description}</td>
+                          <td className="p-3 text-muted-foreground">{labelFor(tx.categoryId)}</td>
+                          <td className="p-3 text-muted-foreground">{tx.date}</td>
+                          <td className="p-3 text-right font-medium text-foreground">{formatCurrency(tx.amount)}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              )}
+            </div>
+          </div>
+        </section>
+      </Reveal>
     </main>
   );
 }

@@ -358,7 +358,9 @@
       "title": "Ready to take control of your day-to-day spending?",
       "subtitle": "Start logging expenses and set your first budget in under a minute.",
       "primaryCta": "Start tracking now",
-      "secondaryCta": "Adjust your budgets"
+      "secondaryCta": "Adjust your budgets",
+      "primary": "Get Started Now",
+      "secondary": "Learn More"
     }
   },
   "dashboard": {
