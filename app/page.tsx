@@ -105,7 +105,11 @@ export default function Home() {
               </span>
               <h1 className="mt-6 text-balance font-display text-4xl font-bold tracking-tight md:text-6xl">
                 {t("home.hero.titleStart")}{" "}
-                <span className="text-gradient">dollar goes...</span>
+                <span
+                  className="text-gradient"
+                  style={{
+                    color: "#f97316"
+                  }}>dollar goes...</span>
               </h1>
               <p className="mt-6 max-w-lg text-pretty text-lg leading-relaxed text-muted-foreground">
                 {t("home.hero.subtitle")}
@@ -150,7 +154,6 @@ export default function Home() {
           </div>
         </section>
       </Reveal>
-
       {/* STATS */}
       <Reveal>
         <section id="summary" className="mx-auto max-w-6xl px-6 py-16 md:py-20">
@@ -169,7 +172,6 @@ export default function Home() {
           </motion.div>
         </section>
       </Reveal>
-
       {/* CATEGORIES */}
       <Reveal>
         <section id="categories" className="bg-secondary/40 py-16 md:py-20">
@@ -201,7 +203,6 @@ export default function Home() {
           </div>
         </section>
       </Reveal>
-
       {/* FEATURES */}
       <Reveal>
         <section id="features" className="mx-auto max-w-6xl px-6 py-16 md:py-20">
@@ -212,19 +213,16 @@ export default function Home() {
             <p className="mt-4 text-pretty text-muted-foreground">{t("home.features.subtitle")}</p>
           </div>
           <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {features.map((feature) => (
-              <motion.div key={feature.title} variants={fadeInUp} className="rounded-lg border border-border bg-card p-6 shadow-sm">
-                <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                  <feature.icon className="h-5 w-5" aria-hidden="true" />
-                </span>
-                <h3 className="mt-4 font-display text-lg font-semibold">{feature.title}</h3>
-                <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{feature.description}</p>
-              </motion.div>
-            ))}
+            {features.map((feature) => (<motion.div key={feature.title} variants={fadeInUp} className="rounded-lg border border-border bg-card p-6 shadow-sm">
+              <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                <feature.icon className="h-5 w-5" aria-hidden="true" />
+              </span>
+              <h3 className="mt-4 font-display text-lg font-semibold">{feature.title}</h3>
+              <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{feature.description}</p>
+            </motion.div>))}
           </motion.div>
         </section>
       </Reveal>
-
       {/* INSIGHTS / STEPS */}
       <Reveal>
         <section id="insights" className="bg-secondary/40 py-16 md:py-20">
@@ -249,7 +247,6 @@ export default function Home() {
           </div>
         </section>
       </Reveal>
-
       {/* CTA */}
       <Reveal>
         <section id="cta" className="bg-gradient-brand py-16 md:py-20">
